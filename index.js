@@ -58,10 +58,10 @@ async function createRoom() {
 
   try {
     let response = await fetch(newRoomEndpoint, {
-        method: 'POST',
-        body: JSON.stringify(options),
-        mode: 'cors',
-      }),
+      method: 'POST',
+      body: JSON.stringify(options),
+      mode: 'cors',
+    }),
       room = await response.json();
     return room;
   } catch (e) {
@@ -74,6 +74,7 @@ async function createRoom() {
 }
 
 async function createRoomAndStart() {
+  console.log('createRoomAndStart');
   const createAndStartButton = document.getElementById('create-and-start');
   const copyUrl = document.getElementById('copy-url');
   const errorTitle = document.getElementById('error-title');
@@ -230,9 +231,8 @@ function toggleLocalVideo() {
   const localVideoButton = document.getElementById('local-video-button');
   const currentlyShown = callFrame.showLocalVideo();
   callFrame.setShowLocalVideo(!currentlyShown);
-  localVideoButton.innerHTML = `${
-    currentlyShown ? 'Show' : 'Hide'
-  } local video`;
+  localVideoButton.innerHTML = `${currentlyShown ? 'Show' : 'Hide'
+    } local video`;
 }
 
 function toggleParticipantsBar() {
@@ -241,9 +241,8 @@ function toggleParticipantsBar() {
   );
   const currentlyShown = callFrame.showParticipantsBar();
   callFrame.setShowParticipantsBar(!currentlyShown);
-  participantsBarButton.innerHTML = `${
-    currentlyShown ? 'Show' : 'Hide'
-  } participants bar`;
+  participantsBarButton.innerHTML = `${currentlyShown ? 'Show' : 'Hide'
+    } participants bar`;
 }
 
 /* Other helper functions */
@@ -296,9 +295,8 @@ function showDemoCountdown() {
         let minutes = Math.floor(seconds / 60);
         let remainingSeconds = Math.floor(seconds % 60);
 
-        countdownDisplay.innerHTML = `Demo expires in ${minutes}:${
-          remainingSeconds > 10 ? remainingSeconds : '0' + remainingSeconds
-        }`;
+        countdownDisplay.innerHTML = `Demo expires in ${minutes}:${remainingSeconds > 10 ? remainingSeconds : '0' + remainingSeconds
+          }`;
       }
     }, 1000);
   }
