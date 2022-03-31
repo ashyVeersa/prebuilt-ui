@@ -1,0 +1,129 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    font-family: 'Nexa', sans-serif;
+}
+
+.header{
+    display: flex;
+    align-items: center;
+    padding-left: 40px;
+    height:110px;
+    column-gap: 40px;
+}
+
+.right-side{
+    display: flex;
+    align-items: center;
+    column-gap: 35px;
+    align-self: flex-end;
+    margin-left: auto;
+    margin-bottom: 16px;
+    margin-right: 20px;
+}
+
+.search-icon{
+    padding: 5px;
+    border-radius: 4px;
+    background-image: url("https://vzn-dmg-prdb-dist-cdn.azureedge.net/img/search-new.png");
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: 17px;
+    top: 50%;
+    left: 10px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.search-icon:hover{
+    background-color: #f8f8f8;
+}
+
+.btn{
+    background-color: #470a68;
+    border: none;
+    display: flex;
+    align-items: center;
+    height: 44px;
+}
+
+.btn:hover{
+    background-color: #c5299b;
+}
+
+.btn-div{
+    display: inline-flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    column-gap: 8px;
+    font-weight: 600;
+    height: 30px;
+}
+
+.dropdown-toggle::after{
+    display: none;
+}
+
+.heart {
+    background-image: url("https://vzn-dmg-prdb-dist-cdn.azureedge.net/img/navigation-icons/care-new.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 20px;
+    width: 20px;
+}
+
+.btn-text{
+    font-size: 16px;
+    line-height: 24px;
+    align-self: flex-end;
+}
+
+.bottom-arrow{
+    transform: rotate(-90deg);
+    margin-right: 3px;
+    margin-left: 3px;
+}
+
+.dropdown-menu{
+    right: 0;
+    left: auto;
+    margin-top: 26px;
+    border-radius: 0px;
+    padding: 20px;
+    width: 383px;
+}
+
+.dropdown-item{
+    margin: 0 0 17px 0;
+    padding: 0;
+    color: #525757;
+    cursor: pointer;
+}
+
+.dropdown-item:hover{
+    color: #525757;
+    background-color: #fff;
+}
+
+.dropdown-item.not-last{
+    padding: 0 0 17px 0;
+    border-bottom: 3px solid #ccdef9;
+}
+
+.drop-header{
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.drop-text{
+    font-size: 13px;
+    font-weight: 400;
+}
+
+a:hover{
+    text-decoration: none;
+}

@@ -1,0 +1,42 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    font-family: 'Nexa', sans-serif;
+}
+
+.header{
+    display: flex;
+    align-items: center;
+    padding-left: 40px;
+    height:110px;
+    column-gap: 40px;
+}
+
+.btn-div{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 3rem;
+}
+
+.start-btn{
+    background-color: #470a68;
+    border: none;
+    display: flex;
+    align-items: center;
+    height: 40px;
+    color: #fff;
+    font-weight: 600;
+}
+
+.start-btn:hover{
+    background-color: #c5299b;
+}
+
+.start-btn span{
+    margin-top: 4px;
+}
