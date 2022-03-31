@@ -174,6 +174,8 @@ function handleJoinedMeeting() {
 }
 
 function handleLeftMeeting() {
+  console.log('/thankyou.html');
+  window.location.href = "/thankyou.html";
   toggleMainInterface();
 }
 
