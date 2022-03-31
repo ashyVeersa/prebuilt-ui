@@ -13,11 +13,12 @@
 body {
   margin: 0px;
   height: 100%;
+  padding-top: 110px;
 }
 
-.container {
+.container-daily {
   width: 100%;
-  height: calc(100% - 52px);
+  height: calc(100% - 150px);
   top: 52px;
   background-color: var(--grey-lightest);
   position: relative;
@@ -144,7 +145,8 @@ body {
 
 .in-lobby {
   width: 700px;
-  height: 600px;
+  height: 35rem;
+  /* height: 600px; */
 }
 
 .in-call {

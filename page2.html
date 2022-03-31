@@ -15,44 +15,47 @@
 
 <body>
     <div class="header">
-        <img src="https://vzn-dmg-prdb-dist-cdn.azureedge.net/img/duly-logo-transitional.svg" width="130">
+        <a href="/">
+            <img src="https://vzn-dmg-prdb-dist-cdn.azureedge.net/img/duly-logo-transitional.svg" width="130">
+        </a>
         <img src="1.PNG" height="110" />
         <div class="right-side">
             <div class="search-icon">
             </div>
             <div class="btn-group">
-              <button type="button" class="btn btn-secondary dropdown-toggle" id="dropdownMenuButton" aria-haspopup="true"
-                aria-expanded="false">
-                <div class="btn-div">
-                  <span class="heart"></span>
-                  <span class="btn-text">Get Care</span>
-                  <span class="bottom-arrow">
-                    < </span>
+                <button type="button" class="btn btn-secondary dropdown-toggle" id="dropdownMenuButton"
+                    aria-haspopup="true" aria-expanded="false">
+                    <div class="btn-div">
+                        <span class="heart"></span>
+                        <span class="btn-text">Get Care</span>
+                        <span class="bottom-arrow">
+                            < </span>
+                    </div>
+                </button>
+                <div class="dropdown-menu dropdown-menu-right" \ id="drop">
+                    <div class="dropdown-item not-last">
+                        <div class="drop-header"><span>Schedule An Appointment</span></div>
+                        <div class="drop-text">Schedule an appointment with a provider now.</div>
+                    </div>
+                    <div class="dropdown-item not-last">
+                        <div class="drop-header">Next Available Video Visits</div>
+                        <div class="drop-text">Speak with a provider, virtually, from the comfort of<br />your home or
+                            office.</div>
+                    </div>
+                    <a href="page2.html">
+                        <div class="dropdown-item">
+                            <div class="drop-header">Duly Now Video Consult</div>
+                            <div class="drop-text">Join a new video consult from with your team.</div>
+                        </div>
+                    </a>
                 </div>
-              </button>
-              <div class="dropdown-menu dropdown-menu-right" \ id="drop">
-                <div class="dropdown-item not-last">
-                  <div class="drop-header"><span>Schedule An Appointment</span></div>
-                  <div class="drop-text">Schedule an appointment with a provider now.</div>
-                </div>
-                <div class="dropdown-item not-last">
-                  <div class="drop-header">Next Available Video Visits</div>
-                  <div class="drop-text">Speak with a provider, virtually, from the comfort of<br />your home or
-                    office.</div>
-                </div>
-                <a href="page2.html">
-                  <div class="dropdown-item">
-                    <div class="drop-header">Duly Now Video Consult</div>
-                    <div class="drop-text">Join a new video consult from with your team.</div>
-                  </div>
-                </a>
-              </div>
             </div>
-          </div>
+        </div>
     </div>
     <div class="header-bottom">
         <span class="material-icons" style="margin-top: 7px;">notifications</span>
-        <span style="padding: 0 16px;margin-top: 10px;">Coronavirus (Covid-19) Testing and Vaccine Updates&nbsp;&nbsp;-&nbsp;&nbsp;View More</span>
+        <span style="padding: 0 16px;margin-top: 10px;">Coronavirus (Covid-19) Testing and Vaccine
+            Updates&nbsp;&nbsp;-&nbsp;&nbsp;View More</span>
     </div>
     <div class="centered">
         <div class="div-1">
@@ -70,45 +73,53 @@
                     <label class="normal-text" for="child">Child ( 17 and under)</label>
                 </div>
             </div>
-            <hr/>
+            <hr />
             <div class="inner-div">
                 <div class="subheading center">Confirm Location<span style="color:red">*</span></div>
                 <div style="display: flex;column-gap: 10px;">
                     <div>
                         <input type="checkbox" id="ill" name="ill" value="ill">
                     </div>
-                    <label for="ill" class="normal-text">I confirm that I am physically in state of lllinois.</label><br>
+                    <label for="ill" class="normal-text">I confirm that I am physically in state of
+                        lllinois.</label><br>
                 </div>
-                <div class="normal-text" style="margin-left: 25px;"><strong>If you are not physically in the state of lllinois currently,
-                    please call <span style="color: #470a68;">1-888-693-6437</span> to speak with a team member.
-                </strong></div>
+                <div class="normal-text" style="margin-left: 25px;"><strong>If you are not physically in the state of
+                        lllinois currently,
+                        please call <span style="color: #470a68;">1-888-693-6437</span> to speak with a team member.
+                    </strong></div>
             </div>
-            <hr/>
+            <hr />
             <div class="inner-div">
                 <div class="subheading center">Notice of Privacy Practices<span style="color:red">*</span></div>
                 <div style="display: flex;column-gap: 10px;">
                     <div>
                         <input type="checkbox" id="ill" name="ill" value="ill">
                     </div>
-                    <label for="ill" class="normal-text">Under the Health Insurance Portability & Accountability Act of 1996 (HIPAA),
-                        I understand my rights to privacy regarding my protected health information (PHI) and how it will be used to plan 
-                        and deliver treatment, obtain payment and conduct normal healthcare operations. I acknowledge that I have been 
+                    <label for="ill" class="normal-text">Under the Health Insurance Portability & Accountability Act of
+                        1996 (HIPAA),
+                        I understand my rights to privacy regarding my protected health information (PHI) and how it
+                        will be used to plan
+                        and deliver treatment, obtain payment and conduct normal healthcare operations. I acknowledge
+                        that I have been
                         given the opportunity to read the Notice of Privacy Practices here.</label>
                 </div>
             </div>
-            <hr/>
+            <hr />
             <div class="inner-div">
                 <div class="subheading center">Reason For Visit</div>
                 <div>
                     <select name="reasons" id="reasons" required>
                         <option class="normal-text" value="Condition">Condition<span style="color:red">*</span></option>
-                        <option class="normal-text" value="Condition1">Condition1<span style="color:red">*</span></option>
-                        <option class="normal-text" value="Condition2">Condition2<span style="color:red">*</span></option>
-                        <option class="normal-text" value="Condition3">Condition3<span style="color:red">*</span></option>
+                        <option class="normal-text" value="Condition1">Condition1<span style="color:red">*</span>
+                        </option>
+                        <option class="normal-text" value="Condition2">Condition2<span style="color:red">*</span>
+                        </option>
+                        <option class="normal-text" value="Condition3">Condition3<span style="color:red">*</span>
+                        </option>
                     </select>
                 </div>
             </div>
-            <hr/>
+            <hr />
             <div class="inner-div">
                 <div class="subheading center">Provide Patient Info</div>
                 <div style="width: 715px;margin: 0 auto;">
@@ -118,7 +129,8 @@
                             <input class="normal-text" type="text" id="lname" name="lname" value="Last Name*"><br>
                         </div>
                         <select name="sex" id="sex" required>
-                            <option class="normal-text" value="Legal Sex">Legal Sex<span style="color:red">*</span></option>
+                            <option class="normal-text" value="Legal Sex">Legal Sex<span style="color:red">*</span>
+                            </option>
                             <option class="normal-text" value="Male">Male<span style="color:red">*</span></option>
                             <option class="normal-text" value="Female">Female<span style="color:red">*</span></option>
                         </select>
@@ -130,7 +142,8 @@
                         </div>
                         <div class="subheading" style="margin-top: 36px;">Patient Contact Information</div>
                         <div class="input-div" style="margin-bottom: 0;">
-                            <input class="normal-text" type="text" id="phone" name="phone" value="Primary Phone Number*"><br>
+                            <input class="normal-text" type="text" id="phone" name="phone"
+                                value="Primary Phone Number*"><br>
                             <input class="normal-text" type="text" id="email" name="email" value="Email Address*"><br>
                         </div>
                         <div class="input-div" style="margin-bottom: 0;">
@@ -144,7 +157,7 @@
                             <input class="normal-text" type="text" id="State" name="State" value="State*"><br>
                             <input class="normal-text" type="text" id="Zip" name="Zip" value="Zip*"><br>
                         </div>
-                    </form> 
+                    </form>
                 </div>
             </div>
         </div>
@@ -158,14 +171,14 @@
     </div>
     <script>
         document.getElementById('dropdownMenuButton').addEventListener('click', () => {
-          if (document.getElementById("drop").classList.contains('show')) {
-            document.getElementById("drop").classList.remove('show');
-          }
-          else {
-            document.getElementById("drop").classList.add('show');
-          }
+            if (document.getElementById("drop").classList.contains('show')) {
+                document.getElementById("drop").classList.remove('show');
+            }
+            else {
+                document.getElementById("drop").classList.add('show');
+            }
         })
-      </script>
+    </script>
 </body>
 
 </html>
