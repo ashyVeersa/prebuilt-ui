@@ -188,6 +188,8 @@ function handleJoinedMeeting() {
 function handleLeftMeeting() {
   const createAndStartButton = document.getElementById('create-and-start');
   createAndStartButton.innerHTML = '';
+  const noteText = document.getElementById('note-text');
+  noteText.classList.add('hide');
   window.location.href = "/thankyou.html";
   toggleMainInterface();
 }
