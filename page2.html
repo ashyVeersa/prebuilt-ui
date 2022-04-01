@@ -109,7 +109,8 @@
                 <div class="subheading center">Reason For Visit</div>
                 <div>
                     <select name="reasons" id="reasons" required>
-                        <option class="normal-text" value="" disabled selected style="display: none;">Condition*</option>
+                        <option class="normal-text" value="" disabled selected style="display: none;">Condition*
+                        </option>
                         <option class="normal-text" value="Condition1">Allergy</option>
                         <option class="normal-text" value="Condition2">Back Pain</option>
                         <option class="normal-text" value="Condition3">Cold</option>
@@ -125,11 +126,13 @@
                 <div style="width: 715px;margin: 0 auto;">
                     <form action="/action_page.php">
                         <div class="input-div">
-                            <input class="normal-text" type="text" id="fname" name="fname" placeholder="First Name*"><br>
+                            <input class="normal-text" type="text" id="fname" name="fname"
+                                placeholder="First Name*"><br>
                             <input class="normal-text" type="text" id="lname" name="lname" placeholder="Last Name*"><br>
                         </div>
                         <select name="sex" id="sex" required>
-                            <option class="normal-text" value="" disabled selected style="display: none;">Legal Sex*</option>
+                            <option class="normal-text" value="" disabled selected style="display: none;">Legal Sex*
+                            </option>
                             <option class="normal-text" value="Male">Male</option>
                             <option class="normal-text" value="Female">Female</option>
                         </select>
@@ -141,14 +144,18 @@
                         </div>
                         <div class="subheading" style="margin-top: 36px;">Patient Contact Information</div>
                         <div class="input-div" style="margin-bottom: 0;">
-                            <input class="normal-text" type="text" id="phone" name="phone" placeholder="Primary Phone Number*"><br>
-                            <input class="normal-text" type="text" id="email" name="email" placeholder="Email Address*"><br>
+                            <input class="normal-text" type="text" id="phone" name="phone"
+                                placeholder="Primary Phone Number*"><br>
+                            <input class="normal-text" type="text" id="email" name="email"
+                                placeholder="Email Address*"><br>
                         </div>
                         <div class="input-div" style="margin-bottom: 0;">
-                            <input class="normal-text" type="text" id="address" name="address" placeholder="Address*"><br>
+                            <input class="normal-text" type="text" id="address" name="address"
+                                placeholder="Address*"><br>
                         </div>
                         <div class="input-div" style="margin-bottom: 0;width: 351px;">
-                            <input class="normal-text" type="text" id="apt" name="apt" placeholder="Apt, Suite, Etc."><br>
+                            <input class="normal-text" type="text" id="apt" name="apt"
+                                placeholder="Apt, Suite, Etc."><br>
                         </div>
                         <div class="input-div" style="margin-bottom: 90px;">
                             <input class="normal-text" type="text" id="City" name="City" placeholder="City*"><br>
@@ -176,41 +183,41 @@
                 document.getElementById("drop").classList.add('show');
             }
         })
-        function checkInputs(){
+        function checkInputs() {
             var isValid = true;
             var inputs = document.querySelectorAll("input[type=text]");
-            for(let i=0;i<inputs.length;i++){
-                if(inputs[i].value==="" & inputs[i].name!=='apt'){
+            for (let i = 0; i < inputs.length; i++) {
+                if (inputs[i].value === "" & inputs[i].name !== 'apt') {
                     isValid = false;
                 }
             }
             var inputs = document.querySelectorAll("select");
-            for(let i=0;i<inputs.length;i++){
-                if(inputs[i].value===""){
+            for (let i = 0; i < inputs.length; i++) {
+                if (inputs[i].value === "") {
                     isValid = false;
                 }
             }
             inputs = document.querySelectorAll(".check-input");
-            for(let i=0;i<inputs.length;i++){
-                if(!inputs[i].checked){
+            for (let i = 0; i < inputs.length; i++) {
+                if (!inputs[i].checked) {
                     isValid = false;
                 }
             }
-            if(isValid){
+            if (isValid) {
                 document.getElementById('next-btn').classList.add('btn-active');
             }
-            else{
+            else {
                 document.getElementById('next-btn').classList.remove('btn-active');
             }
             return isValid;
         }
-        document.querySelectorAll('input').forEach((inp)=>{
-            inp.addEventListener('input',checkInputs);
+        document.querySelectorAll('input').forEach((inp) => {
+            inp.addEventListener('input', checkInputs);
         });
-        document.querySelectorAll('select').forEach((inp)=>{
-            inp.addEventListener('change',checkInputs);
+        document.querySelectorAll('select').forEach((inp) => {
+            inp.addEventListener('change', checkInputs);
         });
-      </script>
+    </script>
 </body>
 
 </html>

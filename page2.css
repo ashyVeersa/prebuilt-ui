@@ -62,7 +62,7 @@ body{
     flex-wrap: nowrap;
     column-gap: 8px;
     font-weight: 600;
-    height: 30px;
+    /* height: 30px; */
 }
 
 .dropdown-toggle::after{
@@ -81,12 +81,13 @@ body{
     font-size: 16px;
     line-height: 24px;
     align-self: flex-end;
+    padding-top: 3px;
 }
 
 .bottom-arrow{
     transform: rotate(-90deg);
-    margin-right: 3px;
-    margin-left: 3px;
+    /* margin-right: 3px;
+    margin-left: 3px; */
 }
 
 .dropdown-menu{
