@@ -11,6 +11,14 @@ async function createCallframe() {
   const callWrapper = document.getElementById('wrapper');
   callFrame = await window.DailyIframe.createFrame(callWrapper);
 
+  callFrame.setTheme({
+    colors: {
+      accent: '#002855',
+      accentText: '#fff'
+    },
+  });
+
+
   callFrame
     .on('loaded', showEvent)
     .on('started-camera', showEvent)
@@ -74,7 +82,6 @@ async function createRoom() {
 }
 
 async function createRoomAndStart() {
-  console.log('createRoomAndStart');
   const createAndStartButton = document.getElementById('create-and-start');
   const copyUrl = document.getElementById('copy-url');
   const errorTitle = document.getElementById('error-title');
@@ -90,6 +97,7 @@ async function createRoomAndStart() {
     toggleMainInterface();
     toggleError();
   }
+  console.log('createRoomAndStart', room.url);
   copyUrl.value = room.url;
 
   showDemoCountdown();
@@ -174,6 +182,8 @@ function handleJoinedMeeting() {
 }
 
 function handleLeftMeeting() {
+  console.log('/thankyou.html');
+  window.location.href = "/thankyou.html";
   toggleMainInterface();
 }
 
