@@ -16,6 +16,22 @@ body {
   padding-top: 110px;
 }
 
+.purple-pattern-container {
+  position: fixed;
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: url("https://vzn-dmg-prdb-dist-cdn.azureedge.net/img/pattern.svg");
+  background-repeat: repeat-y;
+  background-attachment: fixed;
+  background-position-x: calc(100% + 275px);
+  background-size: 500px;
+}
+
 .container-daily {
   width: 100%;
   height: calc(100% - 150px);
@@ -34,7 +50,7 @@ body {
   min-width: 100%;
   height: 52px;
   background-color: var(--white);
-  position: fixed;
+  position: fixed !important;
   z-index: 1000;
   top: 0;
   box-shadow: inset 0px -1px 0p var(--grey);
@@ -335,6 +351,14 @@ body {
   line-height: 16px; 
   padding: 0 16px;
   text-align: center;
+}
+
+#note-text {
+  margin:0;
+  padding: 15px;
+  font-weight: 700;
+  color: #002855;
+  position: absolute;
 }
 
 @media screen and (max-width: 700px) {

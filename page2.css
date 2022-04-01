@@ -14,7 +14,11 @@ body{
     padding-left: 40px;
     height:110px;
     column-gap: 40px;
+    position: relative;
+    z-index: 99999;
+    background-color: #fff;
 }
+
 
 .right-side{
     display: flex;
@@ -67,6 +71,22 @@ body{
 
 .dropdown-toggle::after{
     display: none;
+}
+
+.purple-pattern-container {
+    position: fixed;
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: url("https://vzn-dmg-prdb-dist-cdn.azureedge.net/img/pattern.svg");
+    background-repeat: repeat-y;
+    background-attachment: fixed;
+    background-position-x: calc(100% + 275px);
+    background-size: 500px;
 }
 
 .heart {
@@ -354,4 +374,16 @@ input[type="checkbox"]:checked:after{
 .btn-active a{
     color: #fff;
     pointer-events: auto;
+}
+
+.content-center-align {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 150px);
+}
+
+.content-center-align .heading {
+    font-size: 25px;
+    margin:0;
 }

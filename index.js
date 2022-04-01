@@ -123,6 +123,7 @@ async function joinCall() {
       url: url,
       showLeaveButton: true,
     });
+
   } catch (e) {
     if (
       e.message === "can't load iframe meeting because url property isn't set"
@@ -177,6 +178,8 @@ function toggleMainInterface() {
 }
 
 function handleJoinedMeeting() {
+  const noteText = document.getElementById('note-text');
+  noteText.classList.toggle('hide');
   toggleLobby();
   toggleMainInterface();
 }
