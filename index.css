@@ -326,7 +326,7 @@ body {
 }
 
 .hide {
-  display: none;
+  display: none !important;
 }
 
 .button:active {
@@ -354,11 +354,16 @@ body {
 }
 
 #note-text {
-  margin:0;
+  font-size: 28px;
+  margin: 0;
   padding: 15px;
   font-weight: 700;
   color: #002855;
   position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @media screen and (max-width: 700px) {

@@ -86,7 +86,8 @@ async function createRoomAndStart() {
   const copyUrl = document.getElementById('copy-url');
   const errorTitle = document.getElementById('error-title');
   const errorDescription = document.getElementById('error-description');
-
+  const noteText = document.getElementById('note-text');
+  noteText.classList.add('hide');
   createAndStartButton.innerHTML = 'Loading...';
 
   room = await createRoom();
@@ -160,7 +161,7 @@ function toggleControls() {
 function toggleCallStyling() {
   const callWrapper = document.getElementById('wrapper');
   const createAndStartButton = document.getElementById('create-and-start');
-  createAndStartButton.innerHTML = 'Create room and start';
+  createAndStartButton.innerHTML = '';
   callWrapper.classList.toggle('in-call');
 }
 
@@ -185,7 +186,8 @@ function handleJoinedMeeting() {
 }
 
 function handleLeftMeeting() {
-  console.log('/thankyou.html');
+  const createAndStartButton = document.getElementById('create-and-start');
+  createAndStartButton.innerHTML = '';
   window.location.href = "/thankyou.html";
   toggleMainInterface();
 }
