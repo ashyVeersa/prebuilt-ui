@@ -3,11 +3,11 @@
   --white: #ffffff;
   --grey: #c8d1dc;
   --dark-grey: #6b7785;
-  --dark-blue: #1f2d3d;
+  --dark-blue: #002855;
   --dark-blue-border: #2b3f56;
   --green: #72cc18;
   --red-dark: #BB0C0C; 
-  --font-family: GraphikRegular, 'Helvetica Neue', Sans-Serif;
+  --font-family: 'Nexa', sans-serif;
 }
 
 body {
@@ -203,7 +203,7 @@ body {
   height: 32px;
   border-radius: 8px;
   margin: 0px 8px;
-  background: var(--green);
+  background: var(--dark-blue);
   border-width: 0px;
   font-family: var(--font-family);
 }
@@ -262,8 +262,10 @@ body {
   height: 32px;
   padding: 8px 16px;
   font-weight: bold;
-  background: var(--green);
-  border-radius: 8px;
+  font-size: 3rem;
+  color: var(--dark-blue);
+  background-color: transparent;
+  /* border-radius: 8px; */
   border-width: 0px;
   cursor: pointer;
 }
