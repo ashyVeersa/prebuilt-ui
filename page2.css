@@ -65,7 +65,7 @@ body{
     align-items: center;
     flex-wrap: nowrap;
     column-gap: 8px;
-    font-weight: 600;
+    font-weight: 700;
     /* height: 30px; */
 }
 
@@ -170,14 +170,14 @@ a:hover{
     font-size: 32px;
     line-height: 49px;
     font-family: "Nexa",sans-serif;
-    font-weight: 900;
+    font-weight: 700;
     text-align: center;
     color: #002855;
 }
 
 .message{
     margin-top: 8px;
-    font-weight: 900;
+    font-weight: 700;
     font-size: 14px;
     color: #525757;
     line-height: 21px;
@@ -355,7 +355,7 @@ input[type="checkbox"]:checked:after{
     border-radius: 7px;
     border: none;
     margin-top: 40px;
-    font-weight: 900;
+    font-weight: 700;
     font-size: 20px;
     line-height: 30px;
     color: #002855;
