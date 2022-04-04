@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="http://fonts.cdnfonts.com/css/nexa-bold" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="page2.css" />
+</head>
+
+<body>
+    <div class="purple-pattern-container"></div>
+    <div class="header">
+        <a href="/">
+            <img src="https://vzn-dmg-prdb-dist-cdn.azureedge.net/img/duly-logo-transitional.svg" width="130">
+        </a>
+        <img src="1.PNG" height="110" />
+        <div class="right-side">
+            <div class="search-icon">
+            </div>
+            <div class="btn-group">
+                <button type="button" class="btn btn-secondary dropdown-toggle" id="dropdownMenuButton"
+                    aria-haspopup="true" aria-expanded="false">
+                    <div class="btn-div">
+                        <span class="heart"></span>
+                        <span class="btn-text">Get Care</span>
+                        <span class="bottom-arrow">
+                            < </span>
+                    </div>
+                </button>
+                <div class="dropdown-menu dropdown-menu-right" \ id="drop">
+                    <div class="dropdown-item not-last">
+                        <div class="drop-header"><span>Schedule An Appointment</span></div>
+                        <div class="drop-text">Schedule an appointment with a provider now.</div>
+                    </div>
+                    <div class="dropdown-item not-last">
+                        <div class="drop-header">Next Available Video Visits</div>
+                        <div class="drop-text">Speak with a provider, virtually, from the comfort of<br />your home or
+                            office.</div>
+                    </div>
+                    <a href="page2.html">
+                        <div class="dropdown-item">
+                            <div class="drop-header">Duly Now Video Consult</div>
+                            <div class="drop-text">Join a new video consult from with your team.</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="header-bottom">
+        <span class="material-icons" style="margin-top: 7px;">notifications</span>
+        <span style="padding: 0 16px;margin-top: 10px;">Coronavirus (Covid-19) Testing and Vaccine
+            Updates&nbsp;&nbsp;-&nbsp;&nbsp;View More</span>
+    </div>
+
+    <div id="text-container" class="div-1 content-center-align d-none">
+        <p class="heading">
+            No active rooms!
+        </p>
+    </div>
+
+    <div id="table-container">
+        <h1 class="heading">Active Rooms</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">S.No.</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody id="tbody">
+            </tbody>
+        </table>
+    </div>
+
+</body>
+<script>
+    document.getElementById('dropdownMenuButton').addEventListener('click', () => {
+        if (document.getElementById("drop").classList.contains('show')) {
+            document.getElementById("drop").classList.remove('show');
+        }
+        else {
+            document.getElementById("drop").classList.add('show');
+        }
+    })
+
+    async function getRooms() {
+        // This endpoint is using the proxy as outlined in netlify.toml
+        const newRoomEndpoint = `https://api.daily.co/v1/meetings`;
+
+        // we'll add 30 min expiry (exp) so rooms won't linger too long on your account
+        // we'll also turn on chat (enable_chat)
+        // see other available options at https://docs.daily.co/reference#create-room
+        try {
+            let response = await fetch(newRoomEndpoint, {
+                method: 'GET',
+                headers: { 'Authorization': `Bearer b2cebb238d8d4ca8a8602d1c4815b56dd8ab6bde8f15ba5db7a1cb970fbd7d5e` },
+                mode: 'cors',
+            }),
+                room = await response.json();
+            return room;
+        } catch (e) {
+            console.error(e);
+        }
+
+    }
+
+
+
+
+    async function tableCreate(rooms, col) {
+        const _tbody = document.getElementById("tbody")
+        const container = document.getElementById("table-container")
+
+        for (let i = 0; i < rooms.length; i++) {
+            const tr = _tbody.insertRow();
+            const row = rooms[i]
+
+            for (let j = 0; j < col.length; j++) {
+                const td = tr.insertCell();
+                const cell = col[j]
+
+                const a = document.createElement('a');
+                const link = document.createTextNode("join");
+                a.classList.add('btn')
+                a.classList.add('btn-primary')
+                a.appendChild(link);
+                a.title = "This is Link";
+                a.href = `https://duly.daily.co/${row.room}`;
+
+                const onGoingCall = row.participants.length > 1
+
+                switch (cell) {
+                    case 'key':
+                        td.appendChild(document.createTextNode(i + 1));
+                        break;
+
+                    case 'name':
+                        td.appendChild(document.createTextNode(row.room));
+                        break;
+
+                    case 'status':
+                        td.appendChild(document.createTextNode(onGoingCall ? 'ongoing' : 'active'));
+                        break;
+
+                    case 'action':
+                        td.appendChild(a);
+                        break;
+                }
+
+            }
+        }
+    }
+
+    async function onLoad() {
+        const tableCol = ['key', 'name', 'status', 'action']
+        const textContainer = document.getElementById("text-container")
+        const tableContainer = document.getElementById("table-container")
+
+        const fetchRooms = await getRooms()
+        const activeRooms = fetchRooms.data.filter(item => item.ongoing)
+
+        if (activeRooms.length > 0) {
+            tableCreate(activeRooms, tableCol)
+        }
+        else {
+            textContainer.classList.remove("d-none")
+            tableContainer.classList.add("d-none")
+        }
+    }
+
+    onLoad()
+</script>
+
+</html>
