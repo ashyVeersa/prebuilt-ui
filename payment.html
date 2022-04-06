@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Home | DuPage Medical Group is now Duly Health and Care</title>
+
+    <script src="https://sandbox.web.squarecdn.com/v1/square.js"></script>
+
+    <link href="http://fonts.cdnfonts.com/css/nexa-bold" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="page2.css" />
+</head>
+
+<body>
+    <div class="purple-pattern-container"></div>
+    <div class="header">
+        <a href="/">
+            <img src="https://vzn-dmg-prdb-dist-cdn.azureedge.net/img/duly-logo-transitional.svg" width="130">
+        </a>
+        <img src="1.PNG" height="110" />
+        <div class="right-side">
+            <div class="search-icon">
+            </div>
+            <div class="btn-group">
+                <button type="button" class="btn btn-secondary dropdown-toggle" id="dropdownMenuButton"
+                    aria-haspopup="true" aria-expanded="false">
+                    <div class="btn-div">
+                        <span class="heart"></span>
+                        <span class="btn-text">Get Care</span>
+                        <span class="bottom-arrow">
+                            < </span>
+                    </div>
+                </button>
+                <div class="dropdown-menu dropdown-menu-right" \ id="drop">
+                    <div class="dropdown-item not-last">
+                        <div class="drop-header"><span>Schedule An Appointment</span></div>
+                        <div class="drop-text">Schedule an appointment with a provider now.</div>
+                    </div>
+                    <div class="dropdown-item not-last">
+                        <div class="drop-header">Next Available Video Visits</div>
+                        <div class="drop-text">Speak with a provider, virtually, from the comfort of<br />your home or
+                            office.</div>
+                    </div>
+                    <a href="page2.html">
+                        <div class="dropdown-item">
+                            <div class="drop-header">Duly Now Video Consult</div>
+                            <div class="drop-text">Join a new video consult from with your team.</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="header-bottom">
+        <span class="material-icons" style="margin-top: 7px;">notifications</span>
+        <span style="padding: 0 16px;margin-top: 10px;">Coronavirus (Covid-19) Testing and Vaccine
+            Updates&nbsp;&nbsp;-&nbsp;&nbsp;View More</span>
+    </div>
+
+    <form id="payment-form">
+        <div id="card-container"></div>
+        <button id="card-button" type="button">Pay</button>
+    </form>
+</body>
+
+<script>
+    document.getElementById('dropdownMenuButton').addEventListener('click', () => {
+        if (document.getElementById("drop").classList.contains('show')) {
+            document.getElementById("drop").classList.remove('show');
+        }
+        else {
+            document.getElementById("drop").classList.add('show');
+        }
+    })
+
+    const APPLICATION_ID = 'sandbox-sq0idb-GbaS8M85y9qpI36ATHtPWA';
+    const LOCATION_ID = 'L877QJMHRDAG8';
+
+    async function createPayment(token) {
+        const body = JSON.stringify({
+            locationId: LOCATION_ID,
+            sourceId: token,
+            idempotency_key: token,
+            amount_money: {
+                amount: 1000,
+                currency: "USD"
+            },
+        });
+
+        const paymentResponse = await fetch('https://connect.squareupsandbox.com/v2/payments', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer EAAAEHAzkiHOmh8HmdW7PRzfAs5BMqi8-6ctCoR8KOrPZ_6A2e9q_AtguBv-0trt',
+            },
+            body,
+        });
+        if (paymentResponse.ok) {
+            return paymentResponse.json();
+        }
+        const errorBody = await paymentResponse.text();
+        throw new Error(errorBody);
+    }
+
+    async function main() {
+        const payments = Square.payments(APPLICATION_ID, LOCATION_ID);
+        const card = await payments.card();
+        await card.attach('#card-container');
+
+        async function eventHandler(event) {
+            event.preventDefault();
+
+            try {
+                const result = await card.tokenize();
+                const _token = result.token
+                if (result.status === 'OK') {
+                    console.log(`Payment token is ${_token}`);
+                    const paymentResults = await createPayment(_token);
+                    console.log('Payment Success', paymentResults);
+                }
+            } catch (e) {
+                console.error(e);
+            }
+        };
+
+        const cardButton = document.getElementById('card-button');
+        cardButton.addEventListener('click', eventHandler);
+    }
+
+    main();
+</script>
+
+</html>
