@@ -85,7 +85,7 @@
     async function createPayment(token) {
         const body = JSON.stringify({
             locationId: LOCATION_ID,
-            sourceId: token,
+            sourceId: 'cnon:card-nonce-ok',
             idempotency_key: token,
             amount_money: {
                 amount: 1000,
@@ -97,6 +97,7 @@
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
+                'Square-Version': '2022-03-16',
                 'Authorization': 'Bearer EAAAEHAzkiHOmh8HmdW7PRzfAs5BMqi8-6ctCoR8KOrPZ_6A2e9q_AtguBv-0trt',
             },
             body,
@@ -108,9 +109,51 @@
         throw new Error(errorBody);
     }
 
+    const darkModeCardStyle = {
+        '.input-container': {
+            borderColor: '#2D2D2D',
+            borderRadius: '6px',
+        },
+        '.input-container.is-focus': {
+            borderColor: '#006AFF',
+        },
+        '.input-container.is-error': {
+            borderColor: '#ff1600',
+        },
+        '.message-text': {
+            color: '#999999',
+        },
+        '.message-icon': {
+            color: '#999999',
+        },
+        '.message-text.is-error': {
+            color: '#ff1600',
+        },
+        '.message-icon.is-error': {
+            color: '#ff1600',
+        },
+        input: {
+            backgroundColor: '#2D2D2D',
+            color: '#FFFFFF',
+            fontFamily: 'helvetica neue, sans-serif',
+        },
+        'input::placeholder': {
+            color: '#999999',
+        },
+        'input.is-error': {
+            color: '#ff1600',
+        },
+        '@media screen and (max-width: 600px)': {
+            'input': {
+                'fontSize': '12px',
+            }
+        }
+    };
+
+
     async function main() {
         const payments = Square.payments(APPLICATION_ID, LOCATION_ID);
-        const card = await payments.card();
+        const card = await payments.card({ style: darkModeCardStyle });
         await card.attach('#card-container');
 
         async function eventHandler(event) {
