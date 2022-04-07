@@ -58,167 +58,78 @@
         <span style="padding: 0 16px;margin-top: 10px;">Coronavirus (Covid-19) Testing and Vaccine
             Updates&nbsp;&nbsp;-&nbsp;&nbsp;View More</span>
     </div>
+    <div class="steps">
+        <div class="back-arrow">
+            <span><</span>
+        </div>
+        <svg id="step1Icon" class="step stepactive" viewBox="0 0 1550 250">
+            <path stroke-width="5" d="M25,5L1450,5L1545, 125L1450, 245L25,245Q5,245 5, 225L5,25Q5,5 25,5Z"></path>
+            <text x="150" y="150" class="stepDesc"  style="font-size:65px;">Step 1</text>
+        </svg>
+        <svg id="step2Icon" class="step" viewBox="0 0 1550 250">
+            <path stroke-width="5" d="M5,5  L1450,5  L1545,125  L1450,245 L5,245 L100,125 L5,5"></path>
+            <text x="150" y="150" class="stepDesc"  style="font-size:65px;">Step 2</text>
+        </svg>
+        <svg id="step4Icon" class="step" viewBox="0 0 1550 250">
+            <path stroke-width="5" d="M5,5L1525,5Q1545,5 1545,25L1545,225Q1545,245 1525,245L5,245L100,125L5,5Z"></path>
+            <text x="150" y="150" class="stepDesc"  style="font-size:65px;">Done!</text>
+        </svg>
+    </div>
     <div class="centered">
         <div class="div-1">
             <div class="heading">Start A Video Consult</div>
             <div class="message">Just a couple of quick questions so that we can align you to the right physician.</div>
-            <div class="inner-div">
-                <div class="subheading center">Select Age<span style="color:red">*</span></div>
-                <div class="subheading" style="margin-bottom: 8px;">Are you scheduling this visit for:</div>
-                <div style="display: flex;column-gap: 8px;">
-                    <input type="radio" id="adult" name="visit_for" value="Adult" checked>
-                    <label class="normal-text" for="adult">Adult ( 18 or older )</label>
-                </div>
-                <div style="display: flex;column-gap: 8px;">
-                    <input type="radio" id="child" name="visit_for" value="Child">
-                    <label class="normal-text" for="child">Child ( 17 and under)</label>
-                </div>
-            </div>
-            <hr />
-            <div class="inner-div">
-                <div class="subheading center">Confirm Location<span style="color:red">*</span></div>
-                <div style="display: flex;column-gap: 10px;">
-                    <div>
-                        <input type="checkbox" id="ill" name="ill" value="ill" class="check-input">
+            <div class="container">
+                <div class="row">
+                  <div class="col-sm left-col">
+                        <div class="subheading center">Are you a returning Patient ?</div>
+                        <div class="normal-text" style="text-align: center;">Login with MyChart to personalize your exprience and make<br/>
+                            appointments quicker.</div>
+                        <div style="margin: 33px 42px;">
+                            <input class="normal-text" type="text" id="username" name="username"placeholder="Username*" style="width: 463px">
+                            <div class="normal-text" style="font-weight:800;color: #360055;margin-bottom: 21px;margin-top: 6px;">
+                                Forgot your username ?
+                            </div>
+                            <input class="normal-text" type="text" id="password" name="password" placeholder="Password*" style="width: 463px">
+                            <div class="normal-text" style="font-weight:800;color: #360055;margin-top: 6px;">
+                                Forgot your password ?
+                            </div>
+                        </div>
+                        <div style="margin: 0 42px;">
+                            <button class="login-btn" >
+                                Login
+                            </button>
+                        </div>
+                  </div>
+                  <div class="col-sm right-col">
+                    <div class="subheading center">Are you a new Patient ?</div>
+                    <div class="normal-text" style="text-align: center;">Don’t worry, you’ll be able to create a Mychart account<br/>
+                        after the scheduling process.</div>
+                    <div style="margin: 42px 42px 0 42px;">
+                        <a href="page3.html">
+                            <button class="continue-btn">
+                                Continue as new Patient
+                            </button>
+                        </a>
                     </div>
-                    <label for="ill" class="normal-text">I confirm that I am physically in state of
-                        lllinois.</label><br>
+                  </div>
                 </div>
-                <div class="normal-text" style="margin-left: 25px;"><strong>If you are not physically in the state of
-                        lllinois currently,
-                        please call <span style="color: #470a68;">1-888-693-6437</span> to speak with a team member.
-                    </strong></div>
             </div>
-            <hr />
-            <div class="inner-div">
-                <div class="subheading center">Notice of Privacy Practices<span style="color:red">*</span></div>
-                <div style="display: flex;column-gap: 10px;">
-                    <div>
-                        <input type="checkbox" id="ill" name="ill" value="ill" class="check-input">
+            <div class="container" style="margin: 21px 0 174px 0;">
+                <div class="row">
+                  <div class="col-sm right-col">
+                      <div class="normal-text">
+                          Don't have an account?
+                      </div>
+                      <div class="normal-text" style="font-weight:800;color: #360055;margin-top: 6px;">
+                        Create your MyChart account
                     </div>
-                    <label for="ill" class="normal-text">Under the Health Insurance Portability & Accountability Act of
-                        1996 (HIPAA),
-                        I understand my rights to privacy regarding my protected health information (PHI) and how it
-                        will be used to plan
-                        and deliver treatment, obtain payment and conduct normal healthcare operations. I acknowledge
-                        that I have been
-                        given the opportunity to read the Notice of Privacy Practices here.</label>
-                </div>
-            </div>
-            <hr />
-            <div class="inner-div">
-                <div class="subheading center">Reason For Visit</div>
-                <div>
-                    <select name="reasons" id="reasons" required>
-                        <option class="normal-text" value="" disabled selected style="display: none;">Condition*
-                        </option>
-                        <option class="normal-text" value="Condition1">Allergy</option>
-                        <option class="normal-text" value="Condition2">Back Pain</option>
-                        <option class="normal-text" value="Condition3">Cold</option>
-                        <option class="normal-text" value="Condition3">Cough</option>
-                        <option class="normal-text" value="Condition3">Ear Pain</option>
-                        <option class="normal-text" value="Condition3">Fever</option>
-                    </select>
-                </div>
-            </div>
-            <hr />
-            <div class="inner-div">
-                <div class="subheading center">Provide Patient Info</div>
-                <div style="width: 715px;margin: 0 auto;">
-                    <form action="/action_page.php">
-                        <div class="input-div">
-                            <input class="normal-text" type="text" id="fname" name="fname"
-                                placeholder="First Name*"><br>
-                            <input class="normal-text" type="text" id="lname" name="lname" placeholder="Last Name*"><br>
-                        </div>
-                        <select name="sex" id="sex" required>
-                            <option class="normal-text" value="" disabled selected style="display: none;">Legal Sex*
-                            </option>
-                            <option class="normal-text" value="Male">Male</option>
-                            <option class="normal-text" value="Female">Female</option>
-                        </select>
-                        <div class="subheading" style="margin-top: 32px;">Patient DOB</div>
-                        <div class="input-div">
-                            <input class="normal-text" type="text" id="Month" name="Month" placeholder="Month*"><br>
-                            <input class="normal-text" type="text" id="Day" name="Day" placeholder="Day*"><br>
-                            <input class="normal-text" type="text" id="Year" name="Year" placeholder="Year*"><br>
-                        </div>
-                        <div class="subheading" style="margin-top: 36px;">Patient Contact Information</div>
-                        <div class="input-div" style="margin-bottom: 0;">
-                            <input class="normal-text" type="text" id="phone" name="phone"
-                                placeholder="Primary Phone Number*"><br>
-                            <input class="normal-text" type="text" id="email" name="email"
-                                placeholder="Email Address*"><br>
-                        </div>
-                        <div class="input-div" style="margin-bottom: 0;">
-                            <input class="normal-text" type="text" id="address" name="address"
-                                placeholder="Address*"><br>
-                        </div>
-                        <div class="input-div" style="margin-bottom: 0;width: 351px;">
-                            <input class="normal-text" type="text" id="apt" name="apt"
-                                placeholder="Apt, Suite, Etc."><br>
-                        </div>
-                        <div class="input-div" style="margin-bottom: 90px;">
-                            <input class="normal-text" type="text" id="City" name="City" placeholder="City*"><br>
-                            <input class="normal-text" type="text" id="State" name="State" placeholder="State*"><br>
-                            <input class="normal-text" type="text" id="Zip" name="Zip" placeholder="Zip*"><br>
-                        </div>
-                    </form>
+                  </div>
+                  <div class="col-sm"></div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="footer">
-        <button class="start-btn" id="next-btn">
-            <a href="/daily.html">
-                Start Video Consult
-            </a>
-        </button>
-    </div>
-    <script>
-        document.getElementById('dropdownMenuButton').addEventListener('click', () => {
-            if (document.getElementById("drop").classList.contains('show')) {
-                document.getElementById("drop").classList.remove('show');
-            }
-            else {
-                document.getElementById("drop").classList.add('show');
-            }
-        })
-        function checkInputs() {
-            var isValid = true;
-            var inputs = document.querySelectorAll("input[type=text]");
-            for (let i = 0; i < inputs.length; i++) {
-                if (inputs[i].value === "" & inputs[i].name !== 'apt') {
-                    isValid = false;
-                }
-            }
-            var inputs = document.querySelectorAll("select");
-            for (let i = 0; i < inputs.length; i++) {
-                if (inputs[i].value === "") {
-                    isValid = false;
-                }
-            }
-            inputs = document.querySelectorAll(".check-input");
-            for (let i = 0; i < inputs.length; i++) {
-                if (!inputs[i].checked) {
-                    isValid = false;
-                }
-            }
-            if (isValid) {
-                document.getElementById('next-btn').classList.add('btn-active');
-            }
-            else {
-                document.getElementById('next-btn').classList.remove('btn-active');
-            }
-            return isValid;
-        }
-        document.querySelectorAll('input').forEach((inp) => {
-            inp.addEventListener('input', checkInputs);
-        });
-        document.querySelectorAll('select').forEach((inp) => {
-            inp.addEventListener('change', checkInputs);
-        });
-    </script>
 </body>
 
 </html>
