@@ -1,0 +1,13 @@
+<svg id="step1Icon" class="active" viewBox="0 0 1550 250">
+    <path stroke-width="5" d="M25,5
+                                L1450,5
+                                L1545, 125
+                                L1450, 245
+                                L25,245
+                                Q5,245 5, 225
+                                L5,25
+                                Q5,5 25,5
+                                Z"></path>
+    <text x="100" y="100" class="stepNumber" style="font-size:50px;">Step 1</text>
+    <text x="100" y="175" class="stepDesc" style="font-size:65px;">Select Provider &amp; Schedule Appointment</text>
+</svg>
