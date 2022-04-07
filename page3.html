@@ -6,12 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home | DuPage Medical Group is now Duly Health and Care</title>
+    <script src="https://sandbox.web.squarecdn.com/v1/square.js"></script>
+
     <link href="http://fonts.cdnfonts.com/css/nexa-bold" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="page2.css" />
 </head>
+
 
 <body>
     <div class="purple-pattern-container"></div>
@@ -60,19 +63,20 @@
     </div>
     <div class="steps">
         <div class="back-arrow">
-            <span><</span>
+            <span>
+                << /span>
         </div>
         <svg id="step1Icon" class="step stepactive" viewBox="0 0 1550 250">
             <path stroke-width="5" d="M25,5L1450,5L1545, 125L1450, 245L25,245Q5,245 5, 225L5,25Q5,5 25,5Z"></path>
-            <text x="150" y="150" class="stepDesc"  style="font-size:65px;">Step 1</text>
+            <text x="150" y="150" class="stepDesc" style="font-size:65px;">Step 1</text>
         </svg>
         <svg id="step2Icon" class="step stepactive" viewBox="0 0 1550 250">
             <path stroke-width="5" d="M5,5  L1450,5  L1545,125  L1450,245 L5,245 L100,125 L5,5"></path>
-            <text x="150" y="150" class="stepDesc"  style="font-size:65px;">Step 2</text>
+            <text x="150" y="150" class="stepDesc" style="font-size:65px;">Step 2</text>
         </svg>
         <svg id="step4Icon" class="step" viewBox="0 0 1550 250">
             <path stroke-width="5" d="M5,5L1525,5Q1545,5 1545,25L1545,225Q1545,245 1525,245L5,245L100,125L5,5Z"></path>
-            <text x="150" y="150" class="stepDesc"  style="font-size:65px;">Done!</text>
+            <text x="150" y="150" class="stepDesc" style="font-size:65px;">Done!</text>
         </svg>
     </div>
     <div class="centered">
@@ -109,7 +113,8 @@
                                 <option class="normal-text" value="Male">Male</option>
                                 <option class="normal-text" value="Female">Female</option>
                             </select>
-                            <div class="normal-text" style="margin:0 18px 0 33px;">Date of Birth <span style="color:red">*</span></div>
+                            <div class="normal-text" style="margin:0 18px 0 33px;">Date of Birth <span
+                                    style="color:red">*</span></div>
                             <div class="dob-div">
                                 <input class="normal-text" type="text" id="Month" name="Month" placeholder="MM"><br>
                                 <input class="normal-text" type="text" id="Day" name="Day" placeholder="DD"><br>
@@ -119,18 +124,16 @@
                     </form>
                 </div>
             </div>
-            <hr/>
+            <hr />
             <div class="inner-div">
                 <div class="subheading" style="margin-top: 36px;">Patient Contact Information</div>
                 <div class="input-div" style="margin-bottom: 0;">
                     <input class="normal-text" type="text" id="phone" name="phone"
                         placeholder="Primary Phone Number*"><br>
-                    <input class="normal-text" type="text" id="email" name="email"
-                        placeholder="Email Address*"><br>
+                    <input class="normal-text" type="text" id="email" name="email" placeholder="Email Address*"><br>
                 </div>
                 <div class="input-div" style="margin-bottom: 0;">
-                    <input class="normal-text" type="text" id="address" name="address"
-                        placeholder="Address*"><br>
+                    <input class="normal-text" type="text" id="address" name="address" placeholder="Address*"><br>
                 </div>
                 <div class="input-div" style="margin-bottom: 31px;">
                     <input class="normal-text" type="text" id="City" name="City" placeholder="City*"><br>
@@ -138,9 +141,10 @@
                     <input class="normal-text" type="text" id="Zip" name="Zip" placeholder="Zip*"><br>
                 </div>
             </div>
-            <hr/>
+            <hr />
             <div class="inner-div">
-                <div class="subheading" style="margin-bottom: 27px;">Are you scheduling this visit for:<span style="color: red;">*</span></div>
+                <div class="subheading" style="margin-bottom: 27px;">Are you scheduling this visit for:<span
+                        style="color: red;">*</span></div>
                 <div style="display: flex; column-gap: 160px;">
                     <div style="display: flex;column-gap: 13px;">
                         <input type="radio" id="myself" name="visit_for" value="myself" checked>
@@ -156,7 +160,11 @@
             <div class="inner-div" style="margin-bottom: 33px;">
                 <div class="subheading" style="margin-bottom: 15px;">Payment Information</div>
                 <div class="normal-text" style="font-weight: 900;color: #002855;">Amount : $35</div>
-                <div style="width: 715px;margin: 0 auto;">
+                <form id="payment-form">
+                    <div id="card-container"></div>
+                    <button id="card-button" type="button">Pay</button>
+                </form>
+                <!-- <div style="width: 715px;margin: 0 auto;">
                     <div class="input-div" style="column-gap: 21px;">
                         <input class="normal-text" type="text" id="cardno" name="cardno" style="width: 320px;"
                             placeholder="Card Number*">
@@ -164,11 +172,12 @@
                         <input class="normal-text" type="text" id="cvv" name="cvv"  style="width:137px;" placeholder="CVV*">
                         <input class="normal-text" type="text" id="zip2" name="zip2"  style="width:137px;" placeholder="Zip">
                     </div>
-                </div>
+                </div> -->
             </div>
-            <hr/>
+            <hr />
             <div class="inner-div">
-                <div class="subheading" style="margin-bottom: 24px;">Confirm Location<span style="color:red">*</span></div>
+                <div class="subheading" style="margin-bottom: 24px;">Confirm Location<span style="color:red">*</span>
+                </div>
                 <div style="display: flex;column-gap: 10px;">
                     <div>
                         <input type="checkbox" id="ill" name="ill" value="ill" class="check-input">
@@ -177,13 +186,14 @@
                         lllinois.</label><br>
                 </div>
                 <div class="normal-text" style="margin-left: 25px;"><strong>If you are not physically in the state of
-                        lllinois at the time of your visit,please call 
-                        <br/><span style="color: #470a68;">1-888-693-6437</span> to speak with a team member.
+                        lllinois at the time of your visit,please call
+                        <br /><span style="color: #470a68;">1-888-693-6437</span> to speak with a team member.
                     </strong></div>
             </div>
             <hr />
             <div class="inner-div" style="margin-bottom: 90px;">
-                <div class="subheading" style="margin-bottom: 24px;">Notice of Privacy Practices<span style="color:red">*</span></div>
+                <div class="subheading" style="margin-bottom: 24px;">Notice of Privacy Practices<span
+                        style="color:red">*</span></div>
                 <div style="display: flex;column-gap: 10px;">
                     <div>
                         <input type="checkbox" id="ill" name="ill" value="ill" class="check-input">
@@ -249,6 +259,105 @@
         document.querySelectorAll('select').forEach((inp) => {
             inp.addEventListener('change', checkInputs);
         });
+
+
+        const APPLICATION_ID = 'sandbox-sq0idb-GbaS8M85y9qpI36ATHtPWA';
+        const LOCATION_ID = 'L877QJMHRDAG8';
+
+        async function createPayment(token) {
+            const body = JSON.stringify({
+                locationId: LOCATION_ID,
+                sourceId: 'cnon:card-nonce-ok',
+                idempotency_key: token,
+                amount_money: {
+                    amount: 1000,
+                    currency: "USD"
+                },
+            });
+
+            const paymentResponse = await fetch('https://connect.squareupsandbox.com/v2/payments', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Square-Version': '2022-03-16',
+                    'Authorization': 'Bearer EAAAEHAzkiHOmh8HmdW7PRzfAs5BMqi8-6ctCoR8KOrPZ_6A2e9q_AtguBv-0trt',
+                },
+                body,
+            });
+            if (paymentResponse.ok) {
+                return paymentResponse.json();
+            }
+            const errorBody = await paymentResponse.text();
+            throw new Error(errorBody);
+        }
+
+        const darkModeCardStyle = {
+            '.input-container': {
+                borderColor: 'transparent',
+                borderRadius: '0px',
+            },
+            '.input-container.is-focus': {
+                borderColor: 'transparent',
+            },
+            '.input-container.is-error': {
+                borderColor: '#ff1600',
+            },
+            '.message-text': {
+                color: '#999999',
+            },
+            '.message-icon': {
+                color: '#999999',
+            },
+            '.message-text.is-error': {
+                color: '#ff1600',
+            },
+            '.message-icon.is-error': {
+                color: '#ff1600',
+            },
+            input: {
+                backgroundColor: '#f5f5f5',
+                color: '#525757',
+            },
+            'input::placeholder': {
+                color: '#525757',
+            },
+            'input.is-error': {
+                color: '#ff1600',
+            },
+            '@media screen and (max-width: 600px)': {
+                'input': {
+                    'fontSize': '12px',
+                }
+            }
+        };
+
+
+        async function main() {
+            const payments = Square.payments(APPLICATION_ID, LOCATION_ID);
+            const card = await payments.card({ style: darkModeCardStyle });
+            await card.attach('#card-container');
+
+            async function eventHandler(event) {
+                event.preventDefault();
+
+                try {
+                    const result = await card.tokenize();
+                    const _token = result.token
+                    if (result.status === 'OK') {
+                        console.log(`Payment token is ${_token}`);
+                        const paymentResults = await createPayment(_token);
+                        console.log('Payment Success', paymentResults);
+                    }
+                } catch (e) {
+                    console.error(e);
+                }
+            };
+
+            const cardButton = document.getElementById('card-button');
+            cardButton.addEventListener('click', eventHandler);
+        }
+
+        main();
     </script>
 </body>
 
