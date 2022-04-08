@@ -163,7 +163,7 @@
                 <div class="normal-text" style="font-weight: 900;color: #002855;">Amount : $35</div>
                 <form id="payment-form">
                     <div id="card-container"></div>
-                    <button id="card-button" type="button">Pay</button>
+                    <!-- <button id="card-button" type="button">Pay</button> -->
                 </form>
                 <!-- <div style="width: 715px;margin: 0 auto;">
                     <div class="input-div" style="column-gap: 21px;">
@@ -212,9 +212,7 @@
     </div>
     <div class="footer">
         <button class="start-btn" id="next-btn">
-            <a href="/daily.html">
-                Pay and Start Video Consult
-            </a>
+            Pay and Start Video Consult
         </button>
     </div>
     <script>
@@ -287,8 +285,8 @@
             //     body,
             // });
 
-            const paymentResponse = await fetch(`https://createpayment20220408170659.azurewebsites.net/3213/${token}/Payment`, {
-                method: 'POST',
+            const paymentResponse = await fetch(`https://createpayment20220408170659.azurewebsites.net/35/${token}/Payment`, {
+                method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
                 }
@@ -357,13 +355,15 @@
                         console.log(`Payment token is ${_token}`);
                         const paymentResults = await createPayment(_token);
                         console.log('Payment Success', paymentResults);
+                        window.location.href = "/daily.html";
                     }
+
                 } catch (e) {
                     console.error(e);
                 }
             };
 
-            const cardButton = document.getElementById('card-button');
+            const cardButton = document.getElementById('next-btn');
             cardButton.addEventListener('click', eventHandler);
         }
 
