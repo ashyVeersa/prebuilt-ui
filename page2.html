@@ -10,10 +10,26 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
+        crossorigin="anonymous"></script>
     <link rel="stylesheet" href="page2.css" />
 </head>
 
 <body>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+
+            </div>
+        </div>
+    </div>
+
+
     <div class="purple-pattern-container"></div>
     <div class="header">
         <a href="/">
@@ -45,7 +61,8 @@
                     </div>
                     <a href="page2.html">
                         <div class="dropdown-item">
-                            <div class="drop-header">Duly Now Video Consult</div>
+                            <div class="drop-header">Duly Now Video Consult <span class="highlight-text">5 Physician
+                                    Available</span></div>
                             <div class="drop-text">Join a new video consult from with your team.</div>
                         </div>
                     </a>
@@ -58,78 +75,153 @@
         <span style="padding: 0 16px;margin-top: 10px;">Coronavirus (Covid-19) Testing and Vaccine
             Updates&nbsp;&nbsp;-&nbsp;&nbsp;View More</span>
     </div>
+
     <div class="steps">
         <div class="back-arrow">
-            <span><</span>
+            <span>
+                < </span>
         </div>
         <svg id="step1Icon" class="step stepactive" viewBox="0 0 1550 250">
             <path stroke-width="5" d="M25,5L1450,5L1545, 125L1450, 245L25,245Q5,245 5, 225L5,25Q5,5 25,5Z"></path>
-            <text x="150" y="150" class="stepDesc"  style="font-size:65px;">Step 1</text>
+            <text x="150" y="150" class="stepDesc" style="font-size:65px;">Step 1</text>
         </svg>
         <svg id="step2Icon" class="step" viewBox="0 0 1550 250">
             <path stroke-width="5" d="M5,5  L1450,5  L1545,125  L1450,245 L5,245 L100,125 L5,5"></path>
-            <text x="150" y="150" class="stepDesc"  style="font-size:65px;">Step 2</text>
+            <text x="150" y="150" class="stepDesc" style="font-size:65px;">Step 2</text>
         </svg>
         <svg id="step4Icon" class="step" viewBox="0 0 1550 250">
             <path stroke-width="5" d="M5,5L1525,5Q1545,5 1545,25L1545,225Q1545,245 1525,245L5,245L100,125L5,5Z"></path>
-            <text x="150" y="150" class="stepDesc"  style="font-size:65px;">Done!</text>
+            <text x="150" y="150" class="stepDesc" style="font-size:65px;">Done!</text>
         </svg>
     </div>
     <div class="centered">
         <div class="div-1">
-            <div class="heading">Start A Video Consult</div>
+            <div class="heading" data-toggle="modal" data-target="#exampleModal"> Available Physicians(4)</div>
+            <img src="./layout.png" />
+            <!-- <ul class="row list-inline py-5">
+                <li class="col-md-6">
+                    <div class="doc-tile">
+                        <div class="icon">
+                            <img src="./doc.png" />
+                        </div>
+                        <div class="wrapper">
+                            <p class="pre-title">physician</p>
+                            <p class="title">Dr. XYZ</p>
+                            <p class="post-title">PCP- Internal Medicine</p>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="col-md-6">
+                    <div class="doc-tile">
+                        <div class="icon">
+                            <img src="./doc.png" />
+                        </div>
+                        <div class="wrapper">
+                            <p class="pre-title">physician</p>
+                            <p class="title">Dr. XYZ</p>
+                            <p class="post-title">PCP- Internal Medicine</p>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="col-md-6">
+                    <div class="doc-tile">
+                        <div class="icon">
+                            <img src="./doc.png" />
+                        </div>
+                        <div class="wrapper">
+                            <p class="pre-title">physician</p>
+                            <p class="title">Dr. XYZ</p>
+                            <p class="post-title">PCP- Internal Medicine</p>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="col-md-6">
+                    <div class="doc-tile">
+                        <div class="icon">
+                            <img src="./doc.png" />
+                        </div>
+                        <div class="wrapper">
+                            <p class="pre-title">physician</p>
+                            <p class="title">Dr. XYZ</p>
+                            <p class="post-title">PCP- Internal Medicine</p>
+                        </div>
+                    </div>
+                </li>
+            </ul> -->
+        </div>
+
+        <div class="div-1">
+            <div class="heading">Proceed For Video Consult</div>
             <div class="message">Just a couple of quick questions so that we can align you to the right physician.</div>
             <div class="container">
                 <div class="row">
-                  <div class="col-sm left-col">
+                    <div class="col-sm left-col">
                         <div class="subheading center">Are you a returning Patient ?</div>
-                        <div class="normal-text" style="text-align: center;">Login with MyChart to personalize your exprience and make<br/>
+                        <div class="normal-text" style="text-align: center;">Login with MyChart to personalize your
+                            exprience and make<br />
                             appointments quicker.</div>
                         <div style="margin: 33px 42px;">
-                            <input class="normal-text" type="text" id="username" name="username"placeholder="Username*" style="width: 463px">
-                            <div class="normal-text" style="font-weight:800;color: #360055;margin-bottom: 21px;margin-top: 6px;">
+                            <input class="normal-text" type="text" id="username" name="username" placeholder="Username*"
+                                style="width: 463px">
+                            <div class="normal-text"
+                                style="font-weight:800;color: #360055;margin-bottom: 21px;margin-top: 6px;">
                                 Forgot your username ?
                             </div>
-                            <input class="normal-text" type="text" id="password" name="password" placeholder="Password*" style="width: 463px">
+                            <input class="normal-text" type="text" id="password" name="password" placeholder="Password*"
+                                style="width: 463px">
                             <div class="normal-text" style="font-weight:800;color: #360055;margin-top: 6px;">
                                 Forgot your password ?
                             </div>
                         </div>
                         <div style="margin: 0 42px;">
-                            <button class="login-btn" >
+                            <button class="login-btn">
                                 Login
                             </button>
                         </div>
-                  </div>
-                  <div class="col-sm right-col">
-                    <div class="subheading center">Are you a new Patient ?</div>
-                    <div class="normal-text" style="text-align: center;">Don’t worry, you’ll be able to create a Mychart account<br/>
-                        after the scheduling process.</div>
-                    <div style="margin: 42px 42px 0 42px;">
-                        <a href="page3.html">
-                            <button class="continue-btn">
-                                Continue as new Patient
-                            </button>
-                        </a>
                     </div>
-                  </div>
+                    <div class="col-sm right-col">
+                        <div class="subheading center">Are you a new Patient ?</div>
+                        <div class="normal-text" style="text-align: center;">Don’t worry, you’ll be able to create a
+                            Mychart account<br />
+                            after the scheduling process.</div>
+                        <div style="margin: 42px 42px 0 42px;">
+                            <a href="page3.html">
+                                <button class="continue-btn">
+                                    Continue as new Patient
+                                </button>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="container" style="margin: 21px 0 174px 0;">
                 <div class="row">
-                  <div class="col-sm right-col">
-                      <div class="normal-text">
-                          Don't have an account?
-                      </div>
-                      <div class="normal-text" style="font-weight:800;color: #360055;margin-top: 6px;">
-                        Create your MyChart account
+                    <div class="col-sm right-col">
+                        <div class="normal-text">
+                            Don't have an account?
+                        </div>
+                        <div class="normal-text" style="font-weight:800;color: #360055;margin-top: 6px;">
+                            Create your MyChart account
+                        </div>
                     </div>
-                  </div>
-                  <div class="col-sm"></div>
+                    <div class="col-sm"></div>
                 </div>
             </div>
         </div>
     </div>
 </body>
+<script>
+    document.getElementById('dropdownMenuButton').addEventListener('click', () => {
+        if (document.getElementById("drop").classList.contains('show')) {
+            document.getElementById("drop").classList.remove('show');
+        }
+        else {
+            document.getElementById("drop").classList.add('show');
+        }
+    })
+</script>
 
 </html>

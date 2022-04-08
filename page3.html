@@ -48,7 +48,8 @@
                     </div>
                     <a href="page2.html">
                         <div class="dropdown-item">
-                            <div class="drop-header">Duly Now Video Consult</div>
+                            <div class="drop-header">Duly Now Video Consult<span class="highlight-text">5 Physician
+                                    Available</span></div>
                             <div class="drop-text">Join a new video consult from with your team.</div>
                         </div>
                     </a>
@@ -64,7 +65,7 @@
     <div class="steps">
         <div class="back-arrow">
             <span>
-                << /span>
+                < </span>
         </div>
         <svg id="step1Icon" class="step stepactive" viewBox="0 0 1550 250">
             <path stroke-width="5" d="M25,5L1450,5L1545, 125L1450, 245L25,245Q5,245 5, 225L5,25Q5,5 25,5Z"></path>
@@ -266,24 +267,33 @@
 
         async function createPayment(token) {
             const body = JSON.stringify({
-                locationId: LOCATION_ID,
-                sourceId: 'cnon:card-nonce-ok',
+                // locationId: LOCATION_ID,
+                // sourceId: 'cnon:card-nonce-ok',
                 idempotency_key: token,
-                amount_money: {
-                    amount: 1000,
-                    currency: "USD"
-                },
+                amount: 35,
+                // amount_money: {
+                //     amount: 1000,
+                //     currency: "USD"
+                // },
             });
 
-            const paymentResponse = await fetch('https://connect.squareupsandbox.com/v2/payments', {
+            // const paymentResponse = await fetch('https://connect.squareupsandbox.com/v2/payments', {
+            //     method: 'POST',
+            //     headers: {
+            //         'Content-Type': 'application/json',
+            //         'Square-Version': '2022-03-16',
+            //         'Authorization': 'Bearer EAAAEHAzkiHOmh8HmdW7PRzfAs5BMqi8-6ctCoR8KOrPZ_6A2e9q_AtguBv-0trt',
+            //     },
+            //     body,
+            // });
+
+            const paymentResponse = await fetch(`https://createpayment20220408170659.azurewebsites.net/3213/${token}/Payment`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Square-Version': '2022-03-16',
-                    'Authorization': 'Bearer EAAAEHAzkiHOmh8HmdW7PRzfAs5BMqi8-6ctCoR8KOrPZ_6A2e9q_AtguBv-0trt',
-                },
-                body,
+                }
             });
+
             if (paymentResponse.ok) {
                 return paymentResponse.json();
             }
@@ -339,9 +349,9 @@
 
             async function eventHandler(event) {
                 event.preventDefault();
-
                 try {
                     const result = await card.tokenize();
+                    console.log('test', result);
                     const _token = result.token
                     if (result.status === 'OK') {
                         console.log(`Payment token is ${_token}`);

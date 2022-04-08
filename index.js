@@ -58,9 +58,11 @@ async function createRoom() {
   // see other available options at https://docs.daily.co/reference#create-room
   const exp = Math.round(Date.now() / 1000) + 60 * 30;
   const options = {
+    privacy: 'private',
     properties: {
       exp: exp,
-      enable_chat: true,
+      enable_chat: false,
+      enable_knocking: true,
     },
   };
 
@@ -81,6 +83,32 @@ async function createRoom() {
   //  return {url: "https://your-domain.daily.co/hello"}
 }
 
+
+async function getRoomToken(name) {
+  const newRoomEndpoint = `https://api.daily.co/v1/meeting-tokens`;
+  const options = {
+    properties: {
+      room_name: name,
+      is_owner: true
+    },
+  };
+
+  try {
+    let response = await fetch(newRoomEndpoint, {
+      method: 'POST',
+      headers: { 'Authorization': `Bearer b2cebb238d8d4ca8a8602d1c4815b56dd8ab6bde8f15ba5db7a1cb970fbd7d5e` },
+      body: JSON.stringify(options),
+      mode: 'cors',
+    }),
+      room = await response.json();
+    return room;
+  } catch (e) {
+    console.error(e);
+  }
+
+}
+
+
 async function createRoomAndStart() {
   const createAndStartButton = document.getElementById('create-and-start');
   const copyUrl = document.getElementById('copy-url');
@@ -91,6 +119,7 @@ async function createRoomAndStart() {
   createAndStartButton.innerHTML = 'Loading...';
 
   room = await createRoom();
+  const meetingToken = await getRoomToken(room.name);
   if (!room) {
     errorTitle.innerHTML = 'Error creating room';
     errorDescription.innerHTML =
@@ -98,7 +127,7 @@ async function createRoomAndStart() {
     toggleMainInterface();
     toggleError();
   }
-  console.log('createRoomAndStart', room.url);
+  console.log('createRoomAndStart', room.url, meetingToken, 'meetingToken');
   copyUrl.value = room.url;
 
   showDemoCountdown();
@@ -106,6 +135,7 @@ async function createRoomAndStart() {
   try {
     callFrame.join({
       url: room.url,
+      token: meetingToken.token,
       showLeaveButton: true,
     });
   } catch (e) {

@@ -1,9 +1,9 @@
-*{
+* {
     padding: 0;
     margin: 0;
 }
 
-body{
+body {
     font-family: 'Nexa', sans-serif;
 }
 
@@ -23,17 +23,17 @@ body{
     background-size: 500px;
 }
 
-.header{
+.header {
     display: flex;
     align-items: center;
     padding-left: 40px;
-    height:110px;
+    height: 110px;
     column-gap: 40px;
     z-index: 99999;
     background-color: #fff;
 }
 
-.right-side{
+.right-side {
     display: flex;
     align-items: center;
     column-gap: 35px;
@@ -43,7 +43,7 @@ body{
     margin-right: 20px;
 }
 
-.search-icon{
+.search-icon {
     padding: 5px;
     border-radius: 4px;
     background-image: url("https://vzn-dmg-prdb-dist-cdn.azureedge.net/img/search-new.png");
@@ -57,11 +57,11 @@ body{
     cursor: pointer;
 }
 
-.search-icon:hover{
+.search-icon:hover {
     background-color: #f8f8f8;
 }
 
-.btn{
+.btn {
     background-color: #470a68;
     border: none;
     display: flex;
@@ -69,11 +69,11 @@ body{
     height: 44px;
 }
 
-.btn:hover{
+.btn:hover {
     background-color: #c5299b;
 }
 
-.btn-div{
+.btn-div {
     display: inline-flex;
     align-items: center;
     flex-wrap: nowrap;
@@ -82,7 +82,14 @@ body{
     /* height: 30px; */
 }
 
-.dropdown-toggle::after{
+.highlight-text {
+    color: #c5299b;
+    font-weight: 700;
+    font-size: .8rem;
+    margin-left: 5px;
+}
+
+.dropdown-toggle::after {
     display: none;
 }
 
@@ -94,19 +101,19 @@ body{
     width: 20px;
 }
 
-.btn-text{
+.btn-text {
     font-size: 16px;
     line-height: 24px;
     align-self: flex-end;
 }
 
-.bottom-arrow{
+.bottom-arrow {
     transform: rotate(-90deg);
     /* margin-right: 3px;
     margin-left: 3px; */
 }
 
-.dropdown-menu{
+.dropdown-menu {
     right: 0;
     left: auto;
     margin-top: 26px;
@@ -115,33 +122,33 @@ body{
     width: 383px;
 }
 
-.dropdown-item{
+.dropdown-item {
     margin: 0 0 17px 0;
     padding: 0;
     color: #525757;
     cursor: pointer;
 }
 
-.dropdown-item:hover{
+.dropdown-item:hover {
     color: #525757;
     background-color: #fff;
 }
 
-.dropdown-item.not-last{
+.dropdown-item.not-last {
     padding: 0 0 17px 0;
     border-bottom: 3px solid #ccdef9;
 }
 
-.drop-header{
+.drop-header {
     font-size: 16px;
     font-weight: 700;
 }
 
-.drop-text{
+.drop-text {
     font-size: 13px;
     font-weight: 400;
 }
 
-a:hover{
+a:hover {
     text-decoration: none;
 }
