@@ -6,14 +6,17 @@
 
 @font-face {
     font-family: 'Nexa';
-    src: url("./assets/fonts/Nexa/NexaText-Bold.ttf");
+    src: url("./assets/fonts/Nexa/Nexa-Bold.ttf");
     font-weight: 700;
 }
+
 
 
 * {
     padding: 0;
     margin: 0;
+    font-family: 'Nexa';
+
 }
 
 
