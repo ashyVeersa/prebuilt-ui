@@ -1,7 +1,22 @@
+@font-face {
+    font-family: 'Nexa';
+    src: url("./assets/fonts/Nexa/Nexa-Regular.ttf");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Nexa';
+    src: url("./assets/fonts/Nexa/NexaText-Bold.ttf");
+    font-weight: 700;
+}
+
+
 * {
     padding: 0;
     margin: 0;
 }
+
+
 
 a.btn {
     display: flex;
