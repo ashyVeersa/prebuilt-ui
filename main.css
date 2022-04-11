@@ -3,6 +3,18 @@
     margin: 0;
 }
 
+@font-face {
+    font-family: 'Nexa';
+    src: url("./assets/fonts/Nexa/Nexa-Regular.ttf");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Nexa';
+    src: url("./assets/fonts/Nexa/NexaText-Bold.ttf");
+    font-weight: 700;
+}
+
 body {
     font-family: 'Nexa', sans-serif;
 }
