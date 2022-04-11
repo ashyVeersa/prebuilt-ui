@@ -61,7 +61,7 @@
                     </div>
                     <a href="page2.html">
                         <div class="dropdown-item">
-                            <div class="drop-header">Duly Now Video Consult <span class="highlight-text">5 Physician
+                            <div class="drop-header">Duly Now Video Consult <span class="highlight-text">4 Physician
                                     Available</span></div>
                             <div class="drop-text">Join a new video consult from with your team.</div>
                         </div>
@@ -98,59 +98,6 @@
         <div class="div-1">
             <div class="heading" data-toggle="modal" data-target="#exampleModal"> Available Physicians(4)</div>
             <img src="./layout.png" />
-            <!-- <ul class="row list-inline py-5">
-                <li class="col-md-6">
-                    <div class="doc-tile">
-                        <div class="icon">
-                            <img src="./doc.png" />
-                        </div>
-                        <div class="wrapper">
-                            <p class="pre-title">physician</p>
-                            <p class="title">Dr. XYZ</p>
-                            <p class="post-title">PCP- Internal Medicine</p>
-                        </div>
-                    </div>
-                </li>
-
-                <li class="col-md-6">
-                    <div class="doc-tile">
-                        <div class="icon">
-                            <img src="./doc.png" />
-                        </div>
-                        <div class="wrapper">
-                            <p class="pre-title">physician</p>
-                            <p class="title">Dr. XYZ</p>
-                            <p class="post-title">PCP- Internal Medicine</p>
-                        </div>
-                    </div>
-                </li>
-
-                <li class="col-md-6">
-                    <div class="doc-tile">
-                        <div class="icon">
-                            <img src="./doc.png" />
-                        </div>
-                        <div class="wrapper">
-                            <p class="pre-title">physician</p>
-                            <p class="title">Dr. XYZ</p>
-                            <p class="post-title">PCP- Internal Medicine</p>
-                        </div>
-                    </div>
-                </li>
-
-                <li class="col-md-6">
-                    <div class="doc-tile">
-                        <div class="icon">
-                            <img src="./doc.png" />
-                        </div>
-                        <div class="wrapper">
-                            <p class="pre-title">physician</p>
-                            <p class="title">Dr. XYZ</p>
-                            <p class="post-title">PCP- Internal Medicine</p>
-                        </div>
-                    </div>
-                </li>
-            </ul> -->
         </div>
 
         <div class="div-1">
@@ -164,20 +111,20 @@
                             exprience and make<br />
                             appointments quicker.</div>
                         <div style="margin: 33px 42px;">
-                            <input class="normal-text" type="text" id="username" name="username" placeholder="Username*"
-                                style="width: 463px">
+                            <input class="normal-text" onchange="inputHandler()" type="text" id="username"
+                                name="username" placeholder="Username*" style="width: 463px">
                             <div class="normal-text"
                                 style="font-weight:800;color: #360055;margin-bottom: 21px;margin-top: 6px;">
                                 Forgot your username ?
                             </div>
-                            <input class="normal-text" type="text" id="password" name="password" placeholder="Password*"
-                                style="width: 463px">
+                            <input class="normal-text" onchange="inputHandler()" type="text" id="password"
+                                name="password" placeholder="Password*" style="width: 463px">
                             <div class="normal-text" style="font-weight:800;color: #360055;margin-top: 6px;">
                                 Forgot your password ?
                             </div>
                         </div>
                         <div style="margin: 0 42px;">
-                            <button class="login-btn">
+                            <button class="login-btn disabled" id="login-btn">
                                 Login
                             </button>
                         </div>
@@ -222,6 +169,28 @@
             document.getElementById("drop").classList.add('show');
         }
     })
+
+    function inputHandler() {
+        const email = document.getElementById('username').value
+        const password = document.getElementById('password').value
+        const loginBtn = document.getElementById('login-btn')
+
+        if (email != '' && password != '') {
+            loginBtn.classList.remove('disabled')
+        }
+    }
+
+    document.getElementById('login-btn').addEventListener('click', () => {
+        const email = document.getElementById('username').value
+        const password = document.getElementById('password').value
+        const loginBtn = document.getElementById('login-btn')
+
+        if (email != '' && password != '') {
+            loginBtn.classList.remove('disabled')
+            window.location.href = "/pre-filled.html";
+        }
+    })
+
 </script>
 
 </html>

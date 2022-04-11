@@ -6,7 +6,7 @@
   --dark-blue: #002855;
   --dark-blue-border: #2b3f56;
   --green: #72cc18;
-  --red-dark: #BB0C0C; 
+  --red-dark: #BB0C0C;
   --font-family: 'Nexa', sans-serif;
 }
 
@@ -119,7 +119,7 @@ body {
 }
 
 .white-button {
-  color: var(--dark-blue); 
+  color: var(--dark-blue);
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -128,8 +128,8 @@ body {
   padding: 8px 16px;
   border-radius: 8px;
   flex: none;
-  font-size: 12px; 
-  line-height: 16px; 
+  font-size: 12px;
+  line-height: 16px;
   font-weight: 700;
   cursor: pointer;
 }
@@ -334,27 +334,28 @@ body {
 }
 
 .error-message {
-  display: flex; 
-  flex-direction: column; 
-  align-items: center; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .error-title {
-  color: var(--red-dark); 
-  font-size: 16px; 
-  line-height: 24px; 
-  margin: 0px; 
+  color: var(--red-dark);
+  font-size: 16px;
+  line-height: 24px;
+  margin: 0px;
 }
 
 .error-description {
-  font-size: 12px; 
-  line-height: 16px; 
+  font-size: 12px;
+  line-height: 16px;
   padding: 0 16px;
   text-align: center;
 }
 
-#note-text {
-  font-size: 28px;
+#note-text,
+#lobby-heading {
+  font-size: 24px;
   margin: 0;
   padding: 15px;
   font-weight: 700;
@@ -364,6 +365,15 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+#lobby-heading.hide {
+  display: none !important;
+}
+
+#lobby-heading {
+  position: relative !important;
+  display: flex !important;
 }
 
 @media screen and (max-width: 700px) {

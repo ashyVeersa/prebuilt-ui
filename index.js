@@ -61,7 +61,7 @@ async function createRoom() {
     privacy: 'private',
     properties: {
       exp: exp,
-      enable_chat: false,
+      enable_chat: true,
       enable_knocking: true,
     },
   };
@@ -117,6 +117,8 @@ async function createRoomAndStart() {
   const noteText = document.getElementById('note-text');
   noteText.classList.add('hide');
   createAndStartButton.innerHTML = 'Loading...';
+  const lobbyHeading = document.getElementById('lobby-heading');
+  const steps = document.getElementById('steps');
 
   room = await createRoom();
   const meetingToken = await getRoomToken(room.name);
@@ -133,39 +135,46 @@ async function createRoomAndStart() {
   showDemoCountdown();
 
   try {
+    createAndStartButton.innerHTML = '';
+    lobbyHeading.classList.remove('hide');
+    steps.classList.remove('hide');
+
     callFrame.join({
       url: room.url,
       token: meetingToken.token,
       showLeaveButton: true,
     });
+
   } catch (e) {
     toggleError();
     console.error(e);
   }
 }
 
-async function joinCall() {
-  const url = document.getElementById('url-input').value;
-  const copyUrl = document.getElementById('copy-url');
-  copyUrl.value = url;
+// async function joinCall() {
+//   const url = document.getElementById('url-input').value;
+//   const copyUrl = document.getElementById('copy-url');
 
-  try {
-    await callFrame.join({
-      url: url,
-      showLeaveButton: true,
-    });
 
-  } catch (e) {
-    if (
-      e.message === "can't load iframe meeting because url property isn't set"
-    ) {
-      toggleMainInterface();
-      console.log('empty URL');
-    }
-    toggleError();
-    console.error(e);
-  }
-}
+//   copyUrl.value = url;
+
+//   try {
+//     await callFrame.join({
+//       url: url,
+//       showLeaveButton: true,
+//     });
+
+//   } catch (e) {
+//     if (
+//       e.message === "can't load iframe meeting because url property isn't set"
+//     ) {
+//       toggleMainInterface();
+//       console.log('empty URL');
+//     }
+//     toggleError();
+//     console.error(e);
+//   }
+// }
 
 /* Event listener callbacks and helpers */
 function showEvent(e) {
@@ -191,6 +200,7 @@ function toggleControls() {
 function toggleCallStyling() {
   const callWrapper = document.getElementById('wrapper');
   const createAndStartButton = document.getElementById('create-and-start');
+
   createAndStartButton.innerHTML = '';
   callWrapper.classList.toggle('in-call');
 }
@@ -210,7 +220,12 @@ function toggleMainInterface() {
 
 function handleJoinedMeeting() {
   const noteText = document.getElementById('note-text');
+  const lobbyHeading = document.getElementById('lobby-heading');
+  const steps = document.getElementById('steps');
   noteText.classList.toggle('hide');
+  lobbyHeading.classList.add('hide');
+  steps.classList.add('hide');
+
   toggleLobby();
   toggleMainInterface();
 }
