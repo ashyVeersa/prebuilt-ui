@@ -26,7 +26,8 @@ async function createCallframe() {
     .on('joining-meeting', toggleLobby)
     .on('joined-meeting', handleJoinedMeeting)
     .on('left-meeting', handleLeftMeeting)
-    .on('app-message', renderTranscript);
+    .on('app-message', renderTranscript)
+    .on('participant-joined', participantHandler);
 
   const roomURL = document.getElementById('url-input');
   const joinButton = document.getElementById('join-call');
@@ -109,6 +110,13 @@ async function getRoomToken(name) {
 
 }
 
+function renderLoader() {
+  const img = document.createElement('img');
+  img.src = './assets/logo.gif';
+
+  return img
+}
+
 
 async function createRoomAndStart() {
   const createAndStartButton = document.getElementById('create-and-start');
@@ -123,7 +131,8 @@ async function createRoomAndStart() {
   transcriptContainer.classList.add('hide');
   startTranscription.classList.add('hide');
 
-  createAndStartButton.innerHTML = 'Loading...';
+  // createAndStartButton.innerHTML = 'Loading...';
+  createAndStartButton.appendChild(renderLoader())
   const lobbyHeading = document.getElementById('lobby-heading');
   const steps = document.getElementById('steps');
 
@@ -247,6 +256,7 @@ function handleJoinedMeeting() {
 }
 
 function startTranscription() {
+  console.log('Transcription-started');
   callFrame.startTranscription();
 }
 
@@ -419,5 +429,9 @@ async function submitUserData(roomName) {
   } catch (e) {
     console.error(e);
   }
+}
 
+function participantHandler() {
+  const noteText = document.getElementById('note-text');
+  noteText.classList.add('hide')
 }

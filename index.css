@@ -274,6 +274,10 @@ body {
   text-align: center;
 }
 
+.start-button img {
+  width: 100%;
+}
+
 .start-button {
   width: 280px;
   height: 32px;
@@ -383,14 +387,19 @@ body {
   outline: none !important;
   border: none !important;
   background-color: transparent;
-  width: 20px;
+  width: 70px;
   right: 3rem;
-  bottom: 1.7rem;
+  bottom: 0.4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 #start-transcription img {
-  width: 100%;
+  width: 20px;
+  margin-bottom: 2px;
 }
+
 
 #transcript-container {
   position: absolute;
