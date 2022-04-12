@@ -360,12 +360,12 @@
                 // event.preventDefault();
                 try {
                     const result = await card.tokenize();
-                    console.log('test', result);
                     const _token = result.token
+
                     if (result.status === 'OK') {
-                        console.log(`Payment token is ${_token}`);
                         const paymentResults = await createPayment(_token);
                         console.log('Payment Success', paymentResults);
+                        setLocalStorage()
                         window.location.href = "/daily.html";
                     }
 
@@ -386,6 +386,18 @@
 
             const cardButton = document.getElementById('next-btn');
             cardButton.addEventListener('click', onFormSubmit);
+        }
+
+        function setLocalStorage() {
+            const firstName = document.getElementById('fname').value
+            const lastName = document.getElementById('lname').value
+
+            const userData = {
+                firstName,
+                lastName
+            }
+
+            localStorage.setItem('userData', JSON.stringify(userData))
         }
 
         main();

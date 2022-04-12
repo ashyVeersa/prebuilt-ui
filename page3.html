@@ -267,16 +267,14 @@
         const LOCATION_ID = 'L877QJMHRDAG8';
 
         async function createPayment(token) {
-            const body = JSON.stringify({
-                // locationId: LOCATION_ID,
-                // sourceId: 'cnon:card-nonce-ok',
-                idempotency_key: token,
-                amount: 35,
-                // amount_money: {
-                //     amount: 1000,
-                //     currency: "USD"
-                // },
-            });
+            // const body = JSON.stringify({
+            //     locationId: LOCATION_ID,
+            //     sourceId: 'cnon:card-nonce-ok',
+            //     amount_money: {
+            //         amount: 1000,
+            //         currency: "USD"
+            //     },
+            // });
 
             // const paymentResponse = await fetch('https://connect.squareupsandbox.com/v2/payments', {
             //     method: 'POST',
@@ -355,9 +353,9 @@
                     console.log('test', result);
                     const _token = result.token
                     if (result.status === 'OK') {
-                        console.log(`Payment token is ${_token}`);
                         const paymentResults = await createPayment(_token);
                         console.log('Payment Success', paymentResults);
+                        setLocalStorage()
                         window.location.href = "/daily.html";
                     }
 
@@ -378,6 +376,18 @@
 
             const cardButton = document.getElementById('next-btn');
             cardButton.addEventListener('click', onFormSubmit);
+        }
+
+        function setLocalStorage() {
+            const firstName = document.getElementById('fname').value
+            const lastName = document.getElementById('lname').value
+
+            const userData = {
+                firstName,
+                lastName
+            }
+
+            localStorage.setItem('userData', JSON.stringify(userData))
         }
 
         main();

@@ -25,7 +25,8 @@ async function createCallframe() {
     .on('camera-error', showEvent)
     .on('joining-meeting', toggleLobby)
     .on('joined-meeting', handleJoinedMeeting)
-    .on('left-meeting', handleLeftMeeting);
+    .on('left-meeting', handleLeftMeeting)
+    .on('app-message', renderTranscript);
 
   const roomURL = document.getElementById('url-input');
   const joinButton = document.getElementById('join-call');
@@ -115,7 +116,13 @@ async function createRoomAndStart() {
   const errorTitle = document.getElementById('error-title');
   const errorDescription = document.getElementById('error-description');
   const noteText = document.getElementById('note-text');
+  const transcriptContainer = document.getElementById('transcript-container');
+  const startTranscription = document.getElementById('start-transcription');
+
   noteText.classList.add('hide');
+  transcriptContainer.classList.add('hide');
+  startTranscription.classList.add('hide');
+
   createAndStartButton.innerHTML = 'Loading...';
   const lobbyHeading = document.getElementById('lobby-heading');
   const steps = document.getElementById('steps');
@@ -138,12 +145,16 @@ async function createRoomAndStart() {
     createAndStartButton.innerHTML = '';
     lobbyHeading.classList.remove('hide');
     steps.classList.remove('hide');
+    submitUserData(room.name)
 
     callFrame.join({
       url: room.url,
       token: meetingToken.token,
       showLeaveButton: true,
     });
+
+
+
 
   } catch (e) {
     toggleError();
@@ -220,9 +231,14 @@ function toggleMainInterface() {
 
 function handleJoinedMeeting() {
   const noteText = document.getElementById('note-text');
+  const transcriptContainer = document.getElementById('transcript-container');
+  const startTranscription = document.getElementById('start-transcription');
   const lobbyHeading = document.getElementById('lobby-heading');
   const steps = document.getElementById('steps');
+
   noteText.classList.toggle('hide');
+  transcriptContainer.classList.toggle('hide');
+  startTranscription.classList.toggle('hide');
   lobbyHeading.classList.add('hide');
   steps.classList.add('hide');
 
@@ -230,11 +246,32 @@ function handleJoinedMeeting() {
   toggleMainInterface();
 }
 
+function startTranscription() {
+  callFrame.startTranscription();
+}
+
+function renderTranscript(msg) {
+  if (msg?.fromId === 'transcription' && msg.data?.is_final) {
+    const transcriptContainer = document.getElementById('transcript-container')
+    data = (`${msg.data.user_name}: ${msg.data.text}`);
+    transcriptContainer.innerHTML = `<p>${data}</p>`;
+    console.log(data, 'renderTranscript');
+  }
+}
+
+
+
+
 function handleLeftMeeting() {
   const createAndStartButton = document.getElementById('create-and-start');
   createAndStartButton.innerHTML = '';
   const noteText = document.getElementById('note-text');
+  const transcriptContainer = document.getElementById('transcript-container');
+  const startTranscription = document.getElementById('start-transcription');
+
   noteText.classList.add('hide');
+  transcriptContainer.classList.add('hide');
+  startTranscription.classList.add('hide');
   window.location.href = "/thankyou.html";
   toggleMainInterface();
 }
@@ -362,4 +399,25 @@ function showDemoCountdown() {
       }
     }, 1000);
   }
+}
+
+async function submitUserData(roomName) {
+  const data = JSON.parse(localStorage.getItem('userData'))
+  const name = `${data.firstName.trim()} ${data.lastName.trim()}`
+
+  const url = `https://createpayment20220408170659.azurewebsites.net/${name}/${roomName}/Payment/save`;
+
+  try {
+    let response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    }),
+      room = await response.json();
+    return room;
+  } catch (e) {
+    console.error(e);
+  }
+
 }
