@@ -114,7 +114,14 @@
           <button id="join-call" onclick="joinCall()" class="button start-button disabled-button" disabled>
             Join room
           </button> -->
+
       </div>
+      <div id="transcript-container" class="hide"></div>
+      <button id="start-transcription" class="hide" onclick="startTranscription()">
+        <img src="/transcript-icon.png" alt="">
+        <span>Transcript</span>
+      </button>
+
     </div>
     <div id="error-message" class="hide">
       <h2 id="error-title" class="title error-title">
@@ -211,6 +218,7 @@
     </div>
   </div>
   </div>
+
 </body>
 
 <script>
@@ -223,6 +231,31 @@
       document.getElementById("drop").classList.add('show');
     }
   })
+
+  async function setDomainConfig() {
+    const newRoomEndpoint = `https://api.daily.co/v1`;
+    const options = {
+      properties: {
+        enable_transcription: "deepgram:00394951a9fab73a71a069c50ec957ef9c145d64"
+      },
+    };
+
+    try {
+      let response = await fetch(newRoomEndpoint, {
+        method: 'POST',
+        headers: { 'Authorization': `Bearer b2cebb238d8d4ca8a8602d1c4815b56dd8ab6bde8f15ba5db7a1cb970fbd7d5e` },
+        body: JSON.stringify(options),
+        mode: 'cors',
+      }),
+        room = await response.json();
+      return room;
+    } catch (e) {
+      console.error(e);
+    }
+
+  }
+
+  setDomainConfig()
 </script>
 
 </html>
