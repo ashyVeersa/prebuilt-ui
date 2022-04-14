@@ -19,47 +19,54 @@
 <body>
     <div class="purple-pattern-container"></div>
     <div class="header">
-        <a href="/">
-            <img src="https://vzn-dmg-prdb-dist-cdn.azureedge.net/img/duly-logo-transitional.svg" width="130">
+        <a href="/" class="header-mobile">
+        <img src="./Header.jpeg" class='main-logo' alt="logo">  </a>
+        <a href="/" class="header-link">
+          <img src="https://vzn-dmg-prdb-dist-cdn.azureedge.net/img/duly-logo-transitional.svg" width="130">
         </a>
-        <img src="1.PNG" height="110" />
+        <img class="center-image" src="1.PNG" height="110" />
         <div class="right-side">
-            <div class="search-icon">
-            </div>
-            <div class="btn-group">
-                <button type="button" class="btn btn-secondary dropdown-toggle" id="dropdownMenuButton"
-                    aria-haspopup="true" aria-expanded="false">
-                    <div class="btn-div">
-                        <span class="heart"></span>
-                        <span class="btn-text">Get Care</span>
-                        <span class="bottom-arrow">
-                            < </span>
-                    </div>
-                </button>
-                <div class="dropdown-menu dropdown-menu-right" \ id="drop">
-                    <div class="dropdown-item not-last">
-                        <div class="drop-header"><span>Schedule An Appointment</span></div>
-                        <div class="drop-text">Schedule an appointment with a provider now.</div>
-                    </div>
-                    <div class="dropdown-item not-last">
-                        <div class="drop-header">Next Available Video Visits</div>
-                        <div class="drop-text">Speak with a provider, virtually, from the comfort of<br />your home or
-                            office.</div>
-                    </div>
-                    <a href="page2.html">
-                        <div class="dropdown-item">
-                            <div class="drop-header">Duly Now Video Consult<span class="highlight-text">4 Physician
-                                    Available</span></div>
-                            <div class="drop-text"> Start an instant Video Consultation</div>
-                        </div>
-                    </a>
+          <div class="search-icon">
+          </div>
+          <div class="btn-group">
+            <button type="button" class="btn btn-secondary dropdown-toggle" id="dropdownMenuButton" aria-haspopup="true"
+              aria-expanded="false">
+              <div class="btn-div">
+                <span class="heart"></span>
+                <span class="btn-text">Get Care</span>
+                <span class="bottom-arrow">
+                  < </span>
+              </div>
+            </button>
+            <div class="dropdown-menu dropdown-menu-right"  id="drop">
+              <div class="dropdown-item not-last">
+                <div class="drop-header"><span>Schedule An Appointment</span></div>
+                <div class="drop-text">Schedule an appointment with a provider now.</div>
+              </div>
+              <div class="dropdown-item not-last">
+                <div class="drop-header">Next Available Video Visits</div>
+                <div class="drop-text">Speak with a provider, virtually, from the comfort of<br />your home or
+                  office.</div>
+              </div>
+              <a href="page2.html">
+                <div class="dropdown-item">
+                  <div class="drop-header">Duly Now Video Consult <span class="highlight-text">4 Physicians Available</span>
+                  </div>
+                  <div class="drop-text">
+                    Start an instant Video Consultation
+    
+                  </div>
                 </div>
+              </a>
             </div>
+          </div>
         </div>
-    </div>
+      </div>
     <div class="header-bottom">
-        <span class="material-icons" style="margin-top: 7px;">notifications</span>
-        <span style="padding: 0 16px;margin-top: 10px;">Coronavirus (Covid-19) Testing and Vaccine
+        <span class="material-icons" style="margin-top: 7px;
+        padding: 0 0 0 10px;">notifications</span>
+        <span style="padding: 0 10px 0 2px;margin-top: 10px;"
+        class="text">Coronavirus (Covid-19) Testing and Vaccine
             Updates&nbsp;&nbsp;-&nbsp;&nbsp;View More</span>
     </div>
     <div class="steps">
@@ -80,27 +87,47 @@
             <text x="150" y="150" class="stepDesc" style="font-size:65px;">Done!</text>
         </svg>
     </div>
+    <div class="steps-mobile">
+        
+       
+        <svg id="step1Icon" class="step stepactive" viewBox="0 0 900 400">
+            <path stroke-width="10" d="M25,10L800,10L890,200L800,390L25,390Q10,390 10,375L10,25Q10,10 25,10Z"></path>
+            <text x="220" y="250" class="stepDesc" style="font-size:125px;">Step 1</text>
+        </svg>
+       
+        <svg id="step2Icon" class="step" viewBox="0 0 900 400">
+            <path stroke-width="10" d="M10,10L800,10L890,200L800,390L10,390L90,200L10,10Z"></path>
+            <text x="220" y="250" class="stepDesc" style="font-size:125px;">Step 2</text>
+        </svg>
+        
+        <svg id="step4Icon" class="step" viewBox="0 0 900 400">
+            <path stroke-width="10" d="M10,10L875,10Q890,10 890,25L890,375Q890,390 875,390L10,390L90,200L10,10Z"></path>
+            <text x="220" y="250" class="stepDesc" style="font-size:125px;">Done!</text>
+        </svg>
+    </div> 
     <div class="centered">
         <div class="div-1">
             <div class="inner-div">
                 <div class="subheading" style="margin-bottom: 23px;">Reason For Visit</div>
                 <div style="padding-bottom: 12px;">
-                    <select name="reasons" id="reasons" required>
-                        <option class="normal-text" value="" disabled selected style="display: none;">Condition*
+                    <select name="reasons" id="reasons" 
+                   
+                    required style=" width: 100%;">
+                        <option class="normal-text  options" value="" disabled selected style="display: none;">Condition*
                         </option>
-                        <option class="normal-text" value="Condition1">Allergy</option>
-                        <option class="normal-text" value="Condition2">Back Pain</option>
-                        <option class="normal-text" value="Condition3">Cold</option>
-                        <option class="normal-text" value="Condition3">Cough</option>
-                        <option class="normal-text" value="Condition3">Ear Pain</option>
-                        <option class="normal-text" value="Condition3">Fever</option>
+                        <option class="normal-text options" value="Condition1">Allergy</option>
+                        <option class="normal-text options" value="Condition2">Back Pain</option>
+                        <option class="normal-text options" value="Condition3">Cold</option>
+                        <option class="normal-text options" value="Condition3">Cough</option>
+                        <option class="normal-text options" value="Condition3">Ear Pain</option>
+                        <option class="normal-text options" value="Condition3">Fever</option>
                     </select>
                 </div>
             </div>
             <hr />
             <div class="inner-div">
                 <div class="subheading">Provide Patient Info</div>
-                <div style="width: 715px;margin: 0 auto;">
+                <div style="margin: 0 auto;">
                     <form action="/action_page.php">
                         <div class="input-div">
                             <input class="normal-text" type="text" id="fname" name="fname" placeholder="First Name*"
@@ -108,24 +135,26 @@
                             <input class="normal-text" type="text" id="lname" name="lname" placeholder="Last Name*"
                                 value="Goldsmith"><br>
                         </div>
-                        <div style="display: flex; align-items: center;padding-bottom: 15px;">
-                            <select name="sex" id="sex" required style="width:340px">
-                                <option class="normal-text" disabled selected style="display: none;">Legal
+                        <div class="gender-dob-section">
+                            <select name="sex" id="sex" required style="width:323px">
+                                <option class="normal-text options" disabled selected style="display: none;">Legal
                                     Sex*
                                 </option>
-                                <option class="normal-text" value="Male" selected>Male</option>
-                                <option class="normal-text" value="Female">Female</option>
+                                <option class="normal-text options" value="Male" selected>Male</option>
+                                <option class="normal-text options" value="Female">Female</option>
                             </select>
-                            <div class="normal-text" style="margin:0 18px 0 33px;">Date of Birth <span
+                            <div class="dob-section">
+                            <div class="normal-text" ">Date of Birth <span
                                     style="color:red">*</span></div>
                             <div class="dob-div">
                                 <input class="normal-text" type="text" id="Month" name="Month" placeholder="MM"
                                     value="21"><br>
                                 <input class="normal-text" type="text" id="Day" name="Day" placeholder="DD"
                                     value="10"><br>
-                                <input class="normal-text" type="text" id="Year" name="Year" placeholder="YY"
+                                <input class="normal-text last-dob-input" type="text" id="Year" name="Year" placeholder="YY"
                                     value="1989"><br>
                             </div>
+                        </div>
                         </div>
                     </form>
                 </div>
@@ -154,7 +183,7 @@
             <div class="inner-div">
                 <div class="subheading" style="margin-bottom: 27px;">Are you scheduling this visit for:<span
                         style="color: red;">*</span></div>
-                <div style="display: flex; column-gap: 160px;">
+                <div class="scheduling-visit">
                     <div style="display: flex;column-gap: 13px;">
                         <input type="radio" id="myself" name="visit_for" value="myself" checked>
                         <label class="normal-text" for="myself">Myself</label>
