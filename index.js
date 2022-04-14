@@ -135,6 +135,7 @@ async function createRoomAndStart() {
   createAndStartButton.appendChild(renderLoader())
   const lobbyHeading = document.getElementById('lobby-heading');
   const steps = document.getElementById('steps');
+  const stepsMobile = document.getElementById('stepsMobile')
 
   room = await createRoom();
   const meetingToken = await getRoomToken(room.name);
@@ -154,6 +155,8 @@ async function createRoomAndStart() {
     createAndStartButton.innerHTML = '';
     lobbyHeading.classList.remove('hide');
     steps.classList.remove('hide');
+    stepsMobile.classList.remove('hide');
+    
     submitUserData(room.name)
 
     callFrame.join({
@@ -244,12 +247,14 @@ function handleJoinedMeeting() {
   const startTranscription = document.getElementById('start-transcription');
   const lobbyHeading = document.getElementById('lobby-heading');
   const steps = document.getElementById('steps');
+  const stepsMobile = document.getElementById('stepsMobile');
 
   noteText.classList.toggle('hide');
   transcriptContainer.classList.toggle('hide');
   startTranscription.classList.toggle('hide');
   lobbyHeading.classList.add('hide');
   steps.classList.add('hide');
+  stepsMobile.classList.add('hide')
 
   toggleLobby();
   toggleMainInterface();

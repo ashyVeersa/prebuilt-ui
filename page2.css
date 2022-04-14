@@ -656,7 +656,8 @@ ul {
 }
 @media screen and (max-width:650px) {
 
-    .header{
+    .header,
+    .header.duly-header{
     display: flex;
     align-items: center;
     padding: 10px 10px 10px 10px;    

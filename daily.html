@@ -10,7 +10,7 @@
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="./index.css" />
-  <link rel="stylesheet" href="page2.css" />
+  <link rel="stylesheet" href="./page2.css" />
   <script src="./index.js"></script>
 </head>
 
@@ -23,7 +23,8 @@
 <body onload="createCallframe()">
 
   <div class="purple-pattern-container"></div>
-  <div class="header duly-header">
+  <!-- <div class="header duly-header">
+
     <a href="/">
       <img src="https://vzn-dmg-prdb-dist-cdn.azureedge.net/img/duly-logo-transitional.svg" width="130">
     </a>
@@ -61,13 +62,78 @@
         </div>
       </div>
     </div>
+  </div> -->
+  <div class="header duly-header">
+    <a href="/" class="header-mobile">
+      <img src="./Header.jpeg" class="main-logo" alt="logo" />
+    </a>
+    <a href="/" class="header-link">
+      <img
+        src="https://vzn-dmg-prdb-dist-cdn.azureedge.net/img/duly-logo-transitional.svg"
+        width="130"
+      />
+    </a>
+    <img class="center-image" src="1.PNG" height="110" />
+    <div class="right-side">
+      <div class="search-icon"></div>
+      <div class="btn-group">
+        <button
+          type="button"
+          class="btn btn-secondary dropdown-toggle"
+          id="dropdownMenuButton"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          <div class="btn-div">
+            <span class="heart"></span>
+            <span class="btn-text">Get Care</span>
+            <span class="bottom-arrow"> < </span>
+          </div>
+        </button>
+        <div class="dropdown-menu dropdown-menu-right" id="drop">
+          <div class="dropdown-item not-last">
+            <div class="drop-header">
+              <span>Schedule An Appointment</span>
+            </div>
+            <div class="drop-text">
+              Schedule an appointment with a provider now.
+            </div>
+          </div>
+          <div class="dropdown-item not-last">
+            <div class="drop-header">Next Available Video Visits</div>
+            <div class="drop-text">
+              Speak with a provider, virtually, from the comfort of<br />your
+              home or office.
+            </div>
+          </div>
+          <a href="page2.html">
+            <div class="dropdown-item">
+              <div class="drop-header">
+                Duly Now Video Consult
+                <span class="highlight-text">4 Physicians Available</span>
+              </div>
+              <div class="drop-text">Start an instant Video Consultation</div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="header-bottom">
+  <!-- <div class="header-bottom">
     <span class="material-icons" style="margin-top: 7px;">notifications</span>
     <span style="padding: 0 16px;margin-top: 10px;">Coronavirus (Covid-19) Testing and Vaccine
       Updates&nbsp;&nbsp;-&nbsp;&nbsp;View More</span>
-  </div>
+  </div> -->
 
+  <div class="header-bottom">
+    <span class="material-icons" style="margin-top: 7px; padding: 0 0 0 10px"
+      >notifications</span
+    >
+    <span style="padding: 0 10px 0 2px; margin-top: 10px" class="text"
+      >Coronavirus (Covid-19) Testing and Vaccine
+      Updates&nbsp;&nbsp;-&nbsp;&nbsp;View More</span
+    >
+  </div>
   <div class="steps hide" id="steps">
     <div class="back-arrow">
       <span>
@@ -86,8 +152,26 @@
       <text x="150" y="150" class="stepDesc" style="font-size:65px;">Done!</text>
     </svg>
   </div>
+  <div class="steps-mobile hide" id ='stepsMobile'>
+        
+       
+    <svg id="step1Icon" class="step stepactive" viewBox="0 0 900 400">
+        <path stroke-width="10" d="M25,10L800,10L890,200L800,390L25,390Q10,390 10,375L10,25Q10,10 25,10Z"></path>
+        <text x="220" y="250" class="stepDesc" style="font-size:125px;">Step 1</text>
+    </svg>
+   
+    <svg id="step2Icon" class="step stepactive" viewBox="0 0 900 400">
+        <path stroke-width="10" d="M10,10L800,10L890,200L800,390L10,390L90,200L10,10Z"></path>
+        <text x="220" y="250" class="stepDesc" style="font-size:125px;">Step 2</text>
+    </svg>
+    
+    <svg id="step4Icon" class="step stepactive" viewBox="0 0 900 400">
+        <path stroke-width="10" d="M10,10L875,10Q890,10 890,25L890,375Q890,390 875,390L10,390L90,200L10,10Z"></path>
+        <text x="220" y="250" class="stepDesc" style="font-size:125px;">Done!</text>
+    </svg>
+</div> 
 
-  <p id="note-text" class="hide">
+  <p id="note-text" class="hide ">
     A Physician will be with you shortly (Approx. wait time - 05 minutes)</p>
 
   <p id="lobby-heading" class="hide">
