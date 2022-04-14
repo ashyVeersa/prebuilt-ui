@@ -767,6 +767,9 @@ align-items: center;
     .mobile-view-only{
         display: block !important;
     }
+     .thankyou-message{
+        font-size: 14px !important;
+    }
     
 }
 .mobile-view-only{
@@ -777,7 +780,20 @@ align-items: center;
 }
 @media screen and (min-width:900px) {
     .centered{
-        width: 700px;
+        width: 850px;
+    }
+    .partition{
+        display: flex;
+        flex-direction: row !important;
+    }
+    .login-form{
+        width: 50% !important;
+        border-right: 1px solid #b4599a;
+    }
+    .new-patient{
+        width: 50% !important;
+        margin: auto;
+        
     }
     
 }

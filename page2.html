@@ -185,8 +185,8 @@
           </div>
         </div>
         <div class="container">
-          <div class="row">
-            <div class="subheading-center">
+          <div class="row partition" style="margin-bottom: 100px;">
+            <div class="subheading-center login-form">
               <h5 class="subheading center">Are you a returning Patient ?</h5>
               <h4 class="normal-text" style="text-align: center">
                 Login with MyChart to personalize your exprience and make
@@ -228,9 +228,24 @@
                 </p>
                 <button class="login-btn disabled" id="login-btn">Login</button>
               </div>
-              <div style="margin: 0 42px"></div>
+              <div
+              style="
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                align-items: center;
+              "
+            >
+              <p class="normal-text">Don't have an account?</p>
+              <p
+                class="normal-text"
+                style="font-weight: 800; color: #360055; margin-top: 6px"
+              >
+                Create your MyChart account
+              </p>
             </div>
-            <div class="mainchainge">
+            </div>
+            <div class="mainchainge new-patient">
               <div class="subheading center">Are you a new Patient ?</div>
               <div class="normal-text" style="text-align: center">
                 Don’t worry, you’ll be able to create a Mychart account<br />
@@ -247,8 +262,8 @@
             </div>
           </div>
         </div>
-        <div class="container" style="display: flex; justify-content: center">
-          <div class="row">
+        <!-- <div class="container" style="display: flex; justify-content: center">
+          <div class="row partition">
             <div
               style="
                 display: flex;
@@ -267,7 +282,7 @@
             </div>
             <div class="col-sm"></div>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </body>
