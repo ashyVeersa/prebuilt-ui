@@ -126,9 +126,11 @@ async function createRoomAndStart() {
   const noteText = document.getElementById('note-text');
   const transcriptContainer = document.getElementById('transcript-container');
   const startTranscription = document.getElementById('start-transcription');
+  const shareURL = document.getElementById('share-url');
 
   noteText.classList.add('hide');
   transcriptContainer.classList.add('hide');
+  shareURL.classList.add('hide');
   startTranscription.classList.add('hide');
 
   // createAndStartButton.innerHTML = 'Loading...';
@@ -136,9 +138,13 @@ async function createRoomAndStart() {
   const lobbyHeading = document.getElementById('lobby-heading');
   const steps = document.getElementById('steps');
   const stepsMobile = document.getElementById('stepsMobile')
+  const urlSpan = document.getElementById('url-span')
+
+
 
   room = await createRoom();
   const meetingToken = await getRoomToken(room.name);
+
   if (!room) {
     errorTitle.innerHTML = 'Error creating room';
     errorDescription.innerHTML =
@@ -156,7 +162,7 @@ async function createRoomAndStart() {
     lobbyHeading.classList.remove('hide');
     steps.classList.remove('hide');
     stepsMobile.classList.remove('hide');
-    
+
     submitUserData(room.name)
 
     callFrame.join({
@@ -165,13 +171,19 @@ async function createRoomAndStart() {
       showLeaveButton: true,
     });
 
-
-
+    urlSpan.value = room.url
 
   } catch (e) {
     toggleError();
     console.error(e);
   }
+}
+
+function cloneURL() {
+  const urlSpan = document.getElementById('url-span')
+  urlSpan.select();
+  urlSpan.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(urlSpan.value);
 }
 
 // async function joinCall() {
@@ -248,9 +260,11 @@ function handleJoinedMeeting() {
   const lobbyHeading = document.getElementById('lobby-heading');
   const steps = document.getElementById('steps');
   const stepsMobile = document.getElementById('stepsMobile');
+  const shareURL = document.getElementById('share-url');
 
   noteText.classList.toggle('hide');
   transcriptContainer.classList.toggle('hide');
+  shareURL.classList.toggle('hide');
   startTranscription.classList.toggle('hide');
   lobbyHeading.classList.add('hide');
   steps.classList.add('hide');
@@ -283,9 +297,11 @@ function handleLeftMeeting() {
   const noteText = document.getElementById('note-text');
   const transcriptContainer = document.getElementById('transcript-container');
   const startTranscription = document.getElementById('start-transcription');
+  const shareURL = document.getElementById('share-url');
 
   noteText.classList.add('hide');
   transcriptContainer.classList.add('hide');
+  shareURL.classList.add('hide');
   startTranscription.classList.add('hide');
   window.location.href = "/thankyou.html";
   toggleMainInterface();

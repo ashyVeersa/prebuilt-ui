@@ -68,26 +68,19 @@
       <img src="./Header.jpeg" class="main-logo" alt="logo" />
     </a>
     <a href="/" class="header-link">
-      <img
-        src="https://vzn-dmg-prdb-dist-cdn.azureedge.net/img/duly-logo-transitional.svg"
-        width="130"
-      />
+      <img src="https://vzn-dmg-prdb-dist-cdn.azureedge.net/img/duly-logo-transitional.svg" width="130" />
     </a>
     <img class="center-image" src="1.PNG" height="110" />
     <div class="right-side">
       <div class="search-icon"></div>
       <div class="btn-group">
-        <button
-          type="button"
-          class="btn btn-secondary dropdown-toggle"
-          id="dropdownMenuButton"
-          aria-haspopup="true"
-          aria-expanded="false"
-        >
+        <button type="button" class="btn btn-secondary dropdown-toggle" id="dropdownMenuButton" aria-haspopup="true"
+          aria-expanded="false">
           <div class="btn-div">
             <span class="heart"></span>
             <span class="btn-text">Get Care</span>
-            <span class="bottom-arrow"> < </span>
+            <span class="bottom-arrow">
+              < </span>
           </div>
         </button>
         <div class="dropdown-menu dropdown-menu-right" id="drop">
@@ -126,13 +119,9 @@
   </div> -->
 
   <div class="header-bottom">
-    <span class="material-icons" style="margin-top: 7px; padding: 0 0 0 10px"
-      >notifications</span
-    >
-    <span style="padding: 0 10px 0 2px; margin-top: 10px" class="text"
-      >Coronavirus (Covid-19) Testing and Vaccine
-      Updates&nbsp;&nbsp;-&nbsp;&nbsp;View More</span
-    >
+    <span class="material-icons" style="margin-top: 7px; padding: 0 0 0 10px">notifications</span>
+    <span style="padding: 0 10px 0 2px; margin-top: 10px" class="text">Coronavirus (Covid-19) Testing and Vaccine
+      Updates&nbsp;&nbsp;-&nbsp;&nbsp;View More</span>
   </div>
   <div class="steps hide" id="steps">
     <div class="back-arrow">
@@ -152,24 +141,24 @@
       <text x="150" y="150" class="stepDesc" style="font-size:65px;">Done!</text>
     </svg>
   </div>
-  <div class="steps-mobile hide" id ='stepsMobile'>
-        
-       
+  <div class="steps-mobile hide" id='stepsMobile'>
+
+
     <svg id="step1Icon" class="step stepactive" viewBox="0 0 900 400">
-        <path stroke-width="10" d="M25,10L800,10L890,200L800,390L25,390Q10,390 10,375L10,25Q10,10 25,10Z"></path>
-        <text x="220" y="250" class="stepDesc" style="font-size:125px;">Step 1</text>
+      <path stroke-width="10" d="M25,10L800,10L890,200L800,390L25,390Q10,390 10,375L10,25Q10,10 25,10Z"></path>
+      <text x="220" y="250" class="stepDesc" style="font-size:125px;">Step 1</text>
     </svg>
-   
+
     <svg id="step2Icon" class="step stepactive" viewBox="0 0 900 400">
-        <path stroke-width="10" d="M10,10L800,10L890,200L800,390L10,390L90,200L10,10Z"></path>
-        <text x="220" y="250" class="stepDesc" style="font-size:125px;">Step 2</text>
+      <path stroke-width="10" d="M10,10L800,10L890,200L800,390L10,390L90,200L10,10Z"></path>
+      <text x="220" y="250" class="stepDesc" style="font-size:125px;">Step 2</text>
     </svg>
-    
+
     <svg id="step4Icon" class="step stepactive" viewBox="0 0 900 400">
-        <path stroke-width="10" d="M10,10L875,10Q890,10 890,25L890,375Q890,390 875,390L10,390L90,200L10,10Z"></path>
-        <text x="220" y="250" class="stepDesc" style="font-size:125px;">Done!</text>
+      <path stroke-width="10" d="M10,10L875,10Q890,10 890,25L890,375Q890,390 875,390L10,390L90,200L10,10Z"></path>
+      <text x="220" y="250" class="stepDesc" style="font-size:125px;">Done!</text>
     </svg>
-</div> 
+  </div>
 
   <p id="note-text" class="hide ">
     A Physician will be with you shortly (Approx. wait time - 05 minutes)</p>
@@ -198,8 +187,13 @@
           <button id="join-call" onclick="joinCall()" class="button start-button disabled-button" disabled>
             Join room
           </button> -->
-
       </div>
+
+      <div id="share-url" class="hide">
+        <input id="url-span" />
+        <button id="clone-url" onclick="cloneURL()">Meeting URL</button>
+      </div>
+
       <div id="transcript-container" class="hide"></div>
       <button id="start-transcription" class="hide" onclick="startTranscription()">
         <img src="/transcript-icon.png" alt="">
