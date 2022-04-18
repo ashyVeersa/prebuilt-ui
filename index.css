@@ -176,7 +176,7 @@ body {
 }
 
 #share-url {
-  position: absolute;
+  position: fixed;
   bottom: 1rem;
   display: flex;
   align-items: center;
@@ -188,6 +188,7 @@ body {
   border-radius: 0;
   padding: 5px 10px;
   outline: none;
+  width: 18rem;
 }
 
 #clone-url {
@@ -503,8 +504,12 @@ body {
     height: 38rem;
   }
 
+  #url-span {
+    width: 10rem;
+  }
+
   #share-url {
-    bottom: -1rem;
+    bottom: 0rem;
   }
 
   .call-controls-wrapper {

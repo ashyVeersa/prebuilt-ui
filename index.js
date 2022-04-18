@@ -126,9 +126,11 @@ async function createRoomAndStart() {
   const noteText = document.getElementById('note-text');
   const transcriptContainer = document.getElementById('transcript-container');
   const startTranscription = document.getElementById('start-transcription');
+  const shareURL = document.getElementById('share-url');
 
   noteText.classList.add('hide');
   transcriptContainer.classList.add('hide');
+  shareURL.classList.add('hide');
   startTranscription.classList.add('hide');
 
   // createAndStartButton.innerHTML = 'Loading...';
@@ -137,7 +139,7 @@ async function createRoomAndStart() {
   const steps = document.getElementById('steps');
   const stepsMobile = document.getElementById('stepsMobile')
   const urlSpan = document.getElementById('url-span')
-  const shareURL = document.getElementById('share-url');
+
 
 
   room = await createRoom();
@@ -157,7 +159,6 @@ async function createRoomAndStart() {
 
   try {
     createAndStartButton.innerHTML = '';
-    shareURL.classList.remove('hide');
     lobbyHeading.classList.remove('hide');
     steps.classList.remove('hide');
     stepsMobile.classList.remove('hide');
@@ -261,9 +262,9 @@ function handleJoinedMeeting() {
   const stepsMobile = document.getElementById('stepsMobile');
   const shareURL = document.getElementById('share-url');
 
-  shareURL.classList.add('hide');
   noteText.classList.toggle('hide');
   transcriptContainer.classList.toggle('hide');
+  shareURL.classList.toggle('hide');
   startTranscription.classList.toggle('hide');
   lobbyHeading.classList.add('hide');
   steps.classList.add('hide');
@@ -296,9 +297,11 @@ function handleLeftMeeting() {
   const noteText = document.getElementById('note-text');
   const transcriptContainer = document.getElementById('transcript-container');
   const startTranscription = document.getElementById('start-transcription');
+  const shareURL = document.getElementById('share-url');
 
   noteText.classList.add('hide');
   transcriptContainer.classList.add('hide');
+  shareURL.classList.add('hide');
   startTranscription.classList.add('hide');
   window.location.href = "/thankyou.html";
   toggleMainInterface();
